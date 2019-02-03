@@ -7,7 +7,7 @@ public class Admiral : Character
     List<Ship> fleet = new List<Ship>();
     Ship flagship;
     float strength, moral, x, y;
-    Faction faction;
+
     List<Satellite> properties = new List<Satellite>();
     List<Character> minions = new List<Character>();
     float treasury, taxrate, popularity;

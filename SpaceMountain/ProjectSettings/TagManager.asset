@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Satellite
+  - PlayerShip
   layers:
   - Default
   - TransparentFX
