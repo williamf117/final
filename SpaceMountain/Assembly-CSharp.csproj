@@ -62,9 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\Admiral.cs" />
+    <Compile Include="Assets\scripts\Battle\eanamy\railgun.cs" />
+    <Compile Include="Assets\scripts\Battle\PlayerShip.cs" />
+    <Compile Include="Assets\scripts\Battle\PlayerShipColer.cs" />
     <Compile Include="Assets\scripts\bullet.cs" />
     <Compile Include="Assets\scripts\Character.cs" />
-    <Compile Include="Assets\scripts\eanamy\railgun.cs" />
     <Compile Include="Assets\scripts\events\enterPlanetEvent.cs" />
     <Compile Include="Assets\scripts\HUD.cs" />
     <Compile Include="Assets\scripts\Managers\EventManager.cs" />
