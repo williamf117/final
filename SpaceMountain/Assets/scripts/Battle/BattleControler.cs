@@ -4,20 +4,51 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BattleControler : MonoBehaviour
 {
-    GameObject[] Fleet;
+    List<GameObject> Fleet = new List<GameObject>();
+    List<GameObject> EanamyFleet  = new List<GameObject>();
     PlayerShip selected;
 
-    GameObject[] EanamyFleet;
+   
     // Start is called before the first frame update
     void Start()
     {
-        Fleet = GameObject.FindGameObjectsWithTag("PlayerShip");
-        EanamyFleet = GameObject.FindGameObjectsWithTag("HostileFleet");
+        GameObject[] fleet;
+        GameObject[] eanamyFleet;
+        fleet = GameObject.FindGameObjectsWithTag("PlayerShip");
+        eanamyFleet = GameObject.FindGameObjectsWithTag("HostileFleet");
+
+        foreach(GameObject go in fleet)
+        {
+            Fleet.Add(go);
+        }
+        foreach(GameObject go in eanamyFleet)
+        {
+            EanamyFleet.Add(go);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // remove destroyed ships from the lists 
+        foreach(GameObject go in Fleet)
+        {
+            if (go == null)
+            {
+                Fleet.Remove(go);
+            }
+        }
+        foreach (GameObject go in EanamyFleet)
+        {
+            if (go == null)
+            {
+                EanamyFleet.Remove(go);
+            }
+        }
+
+
+        //player controles 
         if (Input.GetMouseButtonDown(0))
         {
           
@@ -35,7 +66,7 @@ public class BattleControler : MonoBehaviour
         {
             bool onEanamy = false;
             foreach (GameObject go in EanamyFleet) {
-
+                onEanamy = false;
                 if (go.GetComponent<railgun>().MouseOn)
                 {
                     onEanamy = true;

@@ -35,11 +35,11 @@ public class HUD : MonoBehaviour {
             Vector3 v = new Vector3();
             v = target.transform.position - Player.transform.position;
             Debug.Log(v.magnitude);
-            if(v.magnitude < 100)
+            if(v.magnitude < 60)
             {
                 Player.transform.position = Player.transform.position + v;
             }
-            v = v.normalized * Time.deltaTime * 50000;
+            v = v.normalized * Time.deltaTime * 20000;
             rb2d.velocity = new Vector2(v.x, v.y);
          //   Debug.Log(rb2d.velocity);
 

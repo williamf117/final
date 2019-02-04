@@ -88,7 +88,7 @@ public class PlayerShip : MonoBehaviour
             if (cooldown < 0)
             {
                 oncooldown = false;
-                cooldown = 3;
+                cooldown = 1;
             }
         }
     }

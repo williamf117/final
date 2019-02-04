@@ -94,7 +94,7 @@ public class railgun : Ship
     {
         playerships = GameObject.FindGameObjectsWithTag("PlayerShip");
         int target= Random.Range(0, playerships.Length - 1);
-        Debug.Log(playerships[target]);
+        //Debug.Log(playerships[target]);
         return playerships[target];
         
     }
