@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class railgun : MonoBehaviour
+public class railgun : Ship
 {
     [SerializeField]
     float maxrainge = 15, minrainge = 5, moveSpeed, cooldown=3;//effective rainge of the gun. 
@@ -14,6 +14,14 @@ public class railgun : MonoBehaviour
     float rotationspeed=3;
     bool inrainge=false;
     bool oncooldown = false;
+    float health = 100;
+
+    bool mouseon;
+
+    public bool MouseOn
+    {
+        get { return mouseon; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -107,5 +115,28 @@ public class railgun : MonoBehaviour
     void OpenRainge()
     {
 
+    }
+
+    void OnMouseOver()
+    {
+        //If your mouse hovers over the GameObject with the script attached, output this message
+        mouseon = true;
+    }
+
+    void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        mouseon = false;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            health -= 20;
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
