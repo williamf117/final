@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class Satellite : MonoBehaviour
 {
     GameObject sun;
-    Admiral governor;
+   // Admiral governor;
     [SerializeField]
     float year = 1, growth = 1;
     enterPlanetEvent enterplanet;

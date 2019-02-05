@@ -19,12 +19,30 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene("Menue");
+        }
     }
 
-    void changesene(string name) {
-        SceneManager.LoadScene(name);
+    public void changesene(string name) {
+        try
+        {
+            //SceneManager.LoadScene("testBattle");
+            SceneManager.LoadScene(name);
+        }
+        catch
+        {
+            Debug.Log("no scene");
+        }
     }
+    public void quit()
+    {
+        Application.Quit();
+    }
+    
+
+
 
 
 

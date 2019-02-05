@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour {
-    public Character Player;
+    [SerializeField]
+    Player player;
     Rigidbody2D rb2d;
     GameObject target=null;
     [SerializeField]
@@ -15,7 +16,7 @@ public class HUD : MonoBehaviour {
     List<Button> buttons;
     // Use this for initialization
     void Start () {
-        rb2d = Player.GetComponent<Rigidbody2D>();
+       
         hud = GetComponent<Canvas>();
 	}
 	
@@ -30,34 +31,21 @@ public class HUD : MonoBehaviour {
         {
             clicklastfraim = false;
         }
-        if (target != null)
-        {
-            Vector3 v = new Vector3();
-            v = target.transform.position - Player.transform.position;
-            Debug.Log(v.magnitude);
-            if(v.magnitude < 60)
-            {
-                Player.transform.position = Player.transform.position + v;
-            }
-            v = v.normalized * Time.deltaTime * 20000;
-            rb2d.velocity = new Vector2(v.x, v.y);
-         //   Debug.Log(rb2d.velocity);
-
-        }	
+       
 	}
     public void TravelTo(GameObject s)
     {
-        target = s;
+        player.setDesto(s);//set the players desto
         foreach (Transform child in hud.transform)
         {
-            GameObject.Destroy(child.gameObject);
+            GameObject.Destroy(child.gameObject);//destroy the buttons 
         }
     }
     void CreateMenue()
     {
         var satelights=GameObject.FindGameObjectsWithTag("Satellite");
         Vector2 startpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(startpos);
+        //Debug.Log(startpos);
         int i = 1;
         foreach(GameObject go in satelights)
         {
