@@ -1,30 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Sprites;
 
-public class PlayerShip : MonoBehaviour
+public class PlayerShip : Ship
 {
    Vector3 desto=Vector3.zero;
     GameObject target = null;
-    float rotationspeed = 3;
-    float health = 100;
-    bool oncooldown = false;
+    
     float cooldown = 2;
     [SerializeField]
     GameObject bullet;
+    
 
-    bool mouseon;
+   
 
-    public bool MouseOn
-    {
-        get { return mouseon; }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+ 
 
     // Update is called once per frame
     void Update()
@@ -50,8 +43,19 @@ public class PlayerShip : MonoBehaviour
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationspeed);
-            FireOnTarget();
 
+            FireOnTarget();
+            LineRenderer lr = GetComponent<LineRenderer>();
+            lr.SetPosition(0, transform.position);
+            lr.SetPosition(1,target.transform.position);
+            lr.startColor=Color.red;
+            lr.endColor = Color.red;
+
+        }
+        else
+        {
+            GetComponent<LineRenderer>().SetPosition(0, Vector3.zero);
+            GetComponent<LineRenderer>().SetPosition(1, Vector3.zero);
         }
     }
     public void MoveToPosition(Vector3 position)
@@ -60,17 +64,19 @@ public class PlayerShip : MonoBehaviour
        
         //Debug.Log("CALLED");
     }
-    void OnMouseOver()
-    {
-        //If your mouse hovers over the GameObject with the script attached, output this message
-        mouseon = true;
-    }
+    //void OnMouseOver()
+    //{
+        
+    //    mouseon = true;
+    //    gameObject.GetComponent<SpriteRenderer>().sprite = Hilight;
 
-    void OnMouseExit()
-    {
-        //The mouse is no longer hovering over the GameObject so output this message each frame
-        mouseon = false;
-    }
+    //}
+
+    //void OnMouseExit()
+    //{
+    //    gameObject.GetComponent<SpriteRenderer>().sprite = noHilight;
+    //    mouseon = false;
+    //}
     void FireOnTarget()
     {
         if (!oncooldown)

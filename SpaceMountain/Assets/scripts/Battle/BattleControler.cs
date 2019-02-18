@@ -32,14 +32,14 @@ public class BattleControler : MonoBehaviour
     {
 
         // remove destroyed ships from the lists 
-        foreach(GameObject go in Fleet)
+        foreach(GameObject go in Fleet.ToArray())
         {
             if (go == null)
             {
                 Fleet.Remove(go);
             }
         }
-        foreach (GameObject go in EanamyFleet)
+        foreach (GameObject go in EanamyFleet.ToArray())
         {
             if (go == null)
             {
@@ -52,7 +52,7 @@ public class BattleControler : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
           
-            foreach (GameObject ship in Fleet)
+            foreach (GameObject ship in Fleet.ToArray())
             {
                 if (ship.GetComponent<PlayerShip>().MouseOn)
                 {
@@ -65,9 +65,9 @@ public class BattleControler : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             bool onEanamy = false;
-            foreach (GameObject go in EanamyFleet) {
+            foreach (GameObject go in EanamyFleet.ToArray()) {
                 onEanamy = false;
-                if (go.GetComponent<railgun>().MouseOn)
+                if (go.GetComponent<EanamyBase>().MouseOn)
                 {
                     onEanamy = true;
                 }
