@@ -3,6 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    int funds=10000;
+    int fule = 100;
+
+    public int Fule
+    {
+        get { return fule; }
+    }
+    public int Funds
+    {
+        get { return funds; }
+    }
 
     GameObject Desto=null;
     [SerializeField]
