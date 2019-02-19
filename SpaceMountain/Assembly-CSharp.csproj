@@ -364,9 +364,11 @@
     <Compile Include="Assets\scripts\Battle\Ship.cs" />
     <Compile Include="Assets\scripts\bullet.cs" />
     <Compile Include="Assets\scripts\events\enterPlanetEvent.cs" />
+    <Compile Include="Assets\scripts\Fleet.cs" />
     <Compile Include="Assets\scripts\HUD.cs" />
     <Compile Include="Assets\scripts\Managers\EventManager.cs" />
     <Compile Include="Assets\scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\scripts\MissionBase.cs" />
     <Compile Include="Assets\scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\Satellite.cs" />

@@ -5,7 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     GameObject Desto=null;
-
+    [SerializeField]
+    float mapMoveSpeed = 50;
+    public float MapMoveSpeed
+    {
+        get { return mapMoveSpeed; }
+        set { mapMoveSpeed = value; }
+    }
 	// Use this for initialization
 	void Start () {
        
@@ -21,13 +27,13 @@ public class Player : MonoBehaviour {
     {
         if (Desto != null)
         {
-          transform.position=  Vector3.MoveTowards(transform.position, Desto.transform.position, 10*Time.deltaTime);
+          transform.position=  Vector3.MoveTowards(transform.position, Desto.transform.position, mapMoveSpeed*Time.deltaTime);
 
 
             Vector3 vectorToTarget = Desto.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 3);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * mapMoveSpeed);
         }
     }
 
