@@ -41,7 +41,7 @@ public class HUD : MonoBehaviour {
             GameObject.Destroy(child.gameObject);//destroy the buttons 
         }
     }
-    void CreateMenue()
+    public void CreateMenue()
     {
         var satelights=GameObject.FindGameObjectsWithTag("Satellite");
         Vector2 startpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
