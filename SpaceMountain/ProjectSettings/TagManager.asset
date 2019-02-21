@@ -8,6 +8,7 @@ TagManager:
   - PlayerShip
   - bullet
   - HostileFleet
+  - HUD
   layers:
   - Default
   - TransparentFX

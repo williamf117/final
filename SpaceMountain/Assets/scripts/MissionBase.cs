@@ -28,7 +28,7 @@ public abstract class MissionBase : MonoBehaviour
     }
     public void Print()
     {
-        Canvas canvis = FindObjectOfType<Canvas>();
-        
+        InGameMenue drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
+      
     }
 }

@@ -87,6 +87,22 @@ public class BattleControler : MonoBehaviour
         }
 
     }
+    private void FixedUpdate()
+    {
+        Vector3 move = Vector3.zero;
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            move.x = Input.GetAxis("Horizontal");
+        }
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            move.y = Input.GetAxis("Vertical");
+        }
+        move.z = 0;
+        move = move.normalized*.5f;
+        gameObject.transform.position = gameObject.transform.position + move;
+       
+    }
 
 
 }
