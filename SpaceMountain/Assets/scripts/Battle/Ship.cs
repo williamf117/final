@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Sprites;
 
 
+
 public class Ship : MonoBehaviour {
 
     protected bool inrainge = false;
@@ -26,6 +27,16 @@ public class Ship : MonoBehaviour {
         noHilight = GetComponentInChildren<SpriteRenderer>().sprite;
         Debug.Log(noHilight.name);
         rb2d = GetComponent<Rigidbody2D>();
+        Sprite s = GetComponent<SpriteRenderer>().sprite;
+
+        GameObject go = new GameObject();
+        go.AddComponent<SpriteRenderer>().sprite = s;
+        go.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        go.transform.localScale = new Vector3(3, 3, -1);
+       //  Instantiate(go);
+        go.transform.parent = gameObject.transform;
+        go.layer = 9;
+
     }
 	
 	// Update is called once per frame

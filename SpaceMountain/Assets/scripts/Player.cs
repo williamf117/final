@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 
     GameObject Desto=null;
     [SerializeField]
-    float mapMoveSpeed = 50;
+    float mapMoveSpeed = 10;
     public float MapMoveSpeed
     {
         get { return mapMoveSpeed; }
@@ -25,8 +25,16 @@ public class Player : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-       
-	}
+        Sprite s = GetComponent<SpriteRenderer>().sprite;
+
+        GameObject go = new GameObject();
+        go.AddComponent<SpriteRenderer>().sprite = s;
+        go.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        go.transform.localScale = new Vector3(10, 10, -1);
+        //  Instantiate(go);
+        go.transform.parent = gameObject.transform;
+        go.layer = 9;
+    }
 	
 	// Update is called once per frame
 	void Update () {

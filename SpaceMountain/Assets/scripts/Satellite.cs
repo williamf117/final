@@ -21,6 +21,16 @@ public class Satellite : MonoBehaviour
         enterplanet = new enterPlanetEvent();
         EventManager.AddNewEnterPlanetInvoker(this);
         sun = transform.parent.gameObject;
+
+        Sprite s = GetComponent<SpriteRenderer>().sprite;
+
+        GameObject go = new GameObject();
+        go.AddComponent<SpriteRenderer>().sprite = s;
+        go.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        go.transform.localScale = new Vector3(10, 10, -1);
+        //  Instantiate(go);
+        go.transform.parent = gameObject.transform;
+        go.layer = 9;
     }
 
     // Update is called once per frame
