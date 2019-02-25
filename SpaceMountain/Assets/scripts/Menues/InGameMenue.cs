@@ -8,12 +8,19 @@ public class InGameMenue : MonoBehaviour
     [SerializeField]
     HUD navMenue;
     [SerializeField]
-    Text funds;
+    Text funds,Fule;
     Player playerscript;
     [SerializeField]
     GameObject missionBreefing;
     [SerializeField]
     Canvas hud;
+    GameObject mb;
+    MissionBase currMission;
+    public MissionBase CurrentMIssion
+    {
+        get { return currMission; }
+        set { currMission = value; }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -23,17 +30,19 @@ public class InGameMenue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        funds.text = "Funds: "+playerscript.Funds.ToString();
+        Fule.text = "Fule: " + playerscript.Fule.ToString();
     }
 
     public void navigation()
     {
         navMenue.CreateMenue();
     }
-    public void Mission()
+     public void Mission()
     {
         Debug.Log("mission");
-        MissionBreafing("this is a description ");
+        //MissionBreafing("this is a description ");
+        currMission.Print();
 
     }
     public void Fleet()
@@ -42,14 +51,15 @@ public class InGameMenue : MonoBehaviour
     }
     public void ToSole()
     {
-        Camera.main.GetComponent<GameManager>().changesene("sole");
+        
     }
     public void MissionBreafing(string descriptionString)
     {
-        GameObject mb = Instantiate(missionBreefing);
+         mb = Instantiate(missionBreefing);
         mb.transform.SetParent(hud.transform, false);
         Text description = mb.transform.Find("description").GetComponent<Text>();
-        description.text = "this is a mission description";
+        description.text = descriptionString;
     }
+
 
 }

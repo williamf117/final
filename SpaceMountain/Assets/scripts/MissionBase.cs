@@ -8,17 +8,28 @@ public enum missionType
         kill,
         fetch
     }
-public abstract class MissionBase : MonoBehaviour
+public class MissionBase : MonoBehaviour
 {
-    
-
-    missionType type;
-    List<Fleet> encounters = new List<Fleet>();
+    InGameMenue drawmission;
+    missionType type=missionType.kill;
+    List<GameObject> encounters = new List<GameObject>();
     string missiondiscription = "go here do this";
+    GameObject desto;
+    string description = "travle to the moon of IO and destroy the fleet there";
+    float reward = 1000;
+    bool acsepted=true;
+    [SerializeField]
+    GameObject PrefabFleet;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
+        desto = GameObject.Find("Io");
+        GameObject fleet= Instantiate(PrefabFleet);
+        fleet.GetComponent<Fleet>().Target = desto;
+        encounters.Add(PrefabFleet);
+        drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
+        drawmission.CurrentMIssion = this;
     }
 
     // Update is called once per frame
@@ -28,7 +39,7 @@ public abstract class MissionBase : MonoBehaviour
     }
     public void Print()
     {
-        InGameMenue drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
-      
+        
+        drawmission.MissionBreafing(description +" reward:"+reward );
     }
 }

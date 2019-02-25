@@ -14,6 +14,7 @@ public class HUD : MonoBehaviour {
     Canvas hud;
     bool clicklastfraim = false;
     List<Button> buttons;
+    
     // Use this for initialization
     void Start () {
        

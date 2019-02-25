@@ -9,19 +9,17 @@ using UnityEngine.Events;
 public class Satellite : MonoBehaviour
 {
     GameObject sun;
-   // Admiral governor;
+    // Admiral governor;
     [SerializeField]
     float year = 1, growth = 1;
     enterPlanetEvent enterplanet;
-
+    public string Name{
+        get { return gameObject.name; }
+    }
     
     // Use this for initialization
     void Start()
     {
-        enterplanet = new enterPlanetEvent();
-        EventManager.AddNewEnterPlanetInvoker(this);
-        sun = transform.parent.gameObject;
-
         Sprite s = GetComponent<SpriteRenderer>().sprite;
 
         GameObject go = new GameObject();
@@ -31,6 +29,18 @@ public class Satellite : MonoBehaviour
         //  Instantiate(go);
         go.transform.parent = gameObject.transform;
         go.layer = 9;
+        enterplanet = new enterPlanetEvent();
+        EventManager.AddNewEnterPlanetInvoker(this);
+        try
+        {
+            sun = transform.parent.gameObject;
+        }
+        catch
+        {
+            sun = null;
+        }
+
+      
     }
 
     // Update is called once per frame
@@ -47,7 +57,15 @@ public class Satellite : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.RotateAround(sun.transform.position, Vector3.forward, year);
+        try
+        {
+            transform.RotateAround(sun.transform.position, Vector3.forward, year);
+        }
+        catch
+        {
+            Debug.Log("no parent");
+
+        }
     }
     public void AddEnterPlanetListener(UnityAction<string> listener) {
         enterplanet.AddListener(listener); 
