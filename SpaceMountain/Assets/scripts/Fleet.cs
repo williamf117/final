@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Sprites;
+using UnityEngine.Events;
 public class Fleet : MonoBehaviour
 {
     GameObject Desto=null;
     GameObject go;
     [SerializeField]
     List<GameObject> ships = new List<GameObject>();
+
+    List<GameObject> fleet = new List<GameObject>();
+    BattleStartEvent bs;
+   
     
     public GameObject Target
     {
@@ -20,14 +25,18 @@ public class Fleet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bs = new BattleStartEvent();
+        EventManager.AddEnterBattleInvoker(this);
+        fleet.Add(ships[0]);
+        fleet.Add(ships[0]);
+        fleet.Add(ships[0]);
+        fleet.Add(ships[0]);
        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   /// <summary>
+   /// for moving the fleet 
+   /// </summary>
     private void FixedUpdate()
     { 
         
@@ -42,4 +51,20 @@ public class Fleet : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * mapMoveSpeed);
         }
     }
+     void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("coll");
+        if (collision.gameObject.tag == "Player")
+        {
+            bs.Invoke(fleet);
+        }
+    }
+
+
+
+    public void AddEnterBattleListener(UnityAction<List<GameObject>> listener)
+    {
+        bs.AddListener(listener); 
+    }
+   
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8436767567996618581}
   - component: {fileID: 8436767567996618582}
   m_Layer: 0
-  m_Name: railgun eanamy1 hilighted
+  m_Name: Prefabfleet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c165cfa8f01e7dc4eb578e4dc1444c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ships: []
+  ships:
+  - {fileID: 5319607800489630916, guid: a9759d3c17de08f4093c3e55eee75945, type: 3}
 --- !u!61 &8436767567996618582
 BoxCollider2D:
   m_ObjectHideFlags: 0

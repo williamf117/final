@@ -29,7 +29,13 @@ public class EventManager : MonoBehaviour
     static List<Satellite> enterplanetInvoker=new List<Satellite>();
     static List<UnityAction<string>> enterplanetListeners=new List<UnityAction<string>>();
 
+    static List<Fleet> enterbattleInvoker = new List<Fleet>();
+    static List<UnityAction<List<GameObject>>> enterbattlelisteners = new List<UnityAction<List<GameObject>>>();
 
+    static List<BattleControler> endBattleinvoker = new List<BattleControler>();
+    static List<UnityAction> endbattlelisteners = new List<UnityAction>();
+
+    #region entyerplanet event
     public static void AddNewEnterPlanetInvoker(Satellite invoker)
     {
         // add invoker to list and add all listeners to invoker
@@ -51,6 +57,57 @@ public class EventManager : MonoBehaviour
         foreach (Satellite invoker in enterplanetInvoker)
         {
             invoker.AddEnterPlanetListener(listener);
+        }
+    }
+    #endregion
+    #region enter batttle 
+
+    public static void AddEnterBattleInvoker(Fleet invoker)
+    {
+        // add invoker to list and add all listeners to invoker
+        enterbattleInvoker.Add(invoker);
+        foreach (UnityAction<List<GameObject>> listener in enterbattlelisteners)
+        {
+            invoker.AddEnterBattleListener(listener);
+        }
+    }
+
+    /// <summary>
+    /// Adds enemy death listener
+    /// </summary>
+    /// <param name="listener">invoker</param>
+    public static void AddNewEnterBattleListener(UnityAction<List<GameObject>> listener)
+    {
+        // add listener to list and to invokers
+        enterbattlelisteners.Add(listener);
+        foreach (Fleet invoker in enterbattleInvoker)
+        {
+            invoker.AddEnterBattleListener(listener);
+        }
+    }
+    #endregion
+
+    public static void AddleveBattleinvoker(BattleControler invoker)
+    {
+        // add invoker to list and add all listeners to invoker
+        endBattleinvoker.Add(invoker);
+        foreach (UnityAction listener in endbattlelisteners)
+        {
+            invoker.addEndBattleListener(listener);
+        }
+    }
+
+    /// <summary>
+    /// Adds enemy death listener
+    /// </summary>
+    /// <param name="listener">invoker</param>
+    public static void AddEndbattlelistener(UnityAction listener)
+    {
+        // add listener to list and to invokers
+        endbattlelisteners.Add(listener);
+        foreach (BattleControler invoker in endBattleinvoker)
+        {
+            invoker.addEndBattleListener(listener);
         }
     }
 }

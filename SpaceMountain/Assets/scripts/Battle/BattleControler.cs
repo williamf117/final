@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 public class BattleControler : MonoBehaviour
 {
     List<GameObject> Fleet = new List<GameObject>();
     List<GameObject> EanamyFleet  = new List<GameObject>();
     PlayerShip selected;
+    EndBattle fin;
 
    
     // Start is called before the first frame update
@@ -16,7 +19,8 @@ public class BattleControler : MonoBehaviour
         GameObject[] eanamyFleet;
         fleet = GameObject.FindGameObjectsWithTag("PlayerShip");
         eanamyFleet = GameObject.FindGameObjectsWithTag("HostileFleet");
-
+        fin = new EndBattle();
+        EventManager.AddleveBattleinvoker(this);
         foreach(GameObject go in fleet)
         {
             Fleet.Add(go);
@@ -30,6 +34,16 @@ public class BattleControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Fleet.ToArray().Length == 0)
+        {
+            SceneManager.LoadScene("Menue");
+        }
+        if (EanamyFleet.ToArray().Length == 0)
+        {
+            // GameManager.
+            fin.Invoke();
+        }
 
         // remove destroyed ships from the lists 
         foreach(GameObject go in Fleet.ToArray())
@@ -102,6 +116,11 @@ public class BattleControler : MonoBehaviour
         move = move.normalized*.5f;
         gameObject.transform.position = gameObject.transform.position + move;
        
+    }
+
+    public void addEndBattleListener(UnityAction listener)
+    {
+        fin.AddListener(listener);
     }
 
 
