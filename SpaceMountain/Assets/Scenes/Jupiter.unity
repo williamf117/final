@@ -387,28 +387,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &648303495 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 576301018193890944, guid: 7288959017aaa6a448e1403724310dff,
-    type: 3}
-  m_PrefabInstance: {fileID: 576301018182602463}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &648303499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648303495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: accd4e01f94de6f4fb38bdc412383aa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reward: 1000
-  PrefabFleet: {fileID: 8436767567996618583, guid: 1d748b8d6aa5d4048bd56448efce8527,
-    type: 3}
-  completed: 0
 --- !u!1 &1082278281
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad72a9d4288e384ba324a00e1ef6210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  year: 0.5
+  year: 0.35
   growth: 1
 --- !u!1 &1287164046
 GameObject:
@@ -598,6 +576,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2076254329787267242, guid: 6ed1a83f2213a8b4eb54f737be916150,
+        type: 3}
+      propertyPath: mapMoveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6028970193075550582, guid: 6ed1a83f2213a8b4eb54f737be916150,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,11 +645,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2076254329787267242, guid: 6ed1a83f2213a8b4eb54f737be916150,
-        type: 3}
-      propertyPath: mapMoveSpeed
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ed1a83f2213a8b4eb54f737be916150, type: 3}
@@ -1181,6 +1159,53 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2068397884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068397886}
+  - component: {fileID: 2068397885}
+  m_Layer: 0
+  m_Name: missionControler
+  m_TagString: MissionControler
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2068397885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068397884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accd4e01f94de6f4fb38bdc412383aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reward: 1000
+  PrefabFleet: {fileID: 8436767567996618583, guid: 1d748b8d6aa5d4048bd56448efce8527,
+    type: 3}
+  completed: 0
+--- !u!4 &2068397886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068397884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 99.51627, y: -57.31172, z: -2.5436318}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &576301018182602463
 PrefabInstance:
   m_ObjectHideFlags: 0

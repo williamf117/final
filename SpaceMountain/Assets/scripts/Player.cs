@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     int funds=10000;
     int fule = 100;
-    GameObject gamemanager;
+    GameObject MissionManager;
     public int Fule
     {
         get { return fule; }
@@ -26,8 +26,8 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Sprite s = GetComponent<SpriteRenderer>().sprite;
-
-        gamemanager = GameObject.FindGameObjectWithTag("GameController");
+  
+        MissionManager = GameObject.FindGameObjectWithTag("MissionControler");
         //make a larger versoion of the sprite for the map veiw 
         GameObject go = new GameObject();
         go.AddComponent<SpriteRenderer>().sprite = s;
@@ -40,11 +40,16 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (gamemanager.GetComponent<MissionBase>().completed)
+        if (MissionManager == null)
         {
-            funds += gamemanager.GetComponent<MissionBase>().reward;
-            gamemanager.GetComponent<MissionBase>().reward = 0;
+            MissionManager = GameObject.FindGameObjectWithTag("MissionControler");
+        }
+        if (MissionManager.GetComponent<MissionBase>().completed)
+        {
+            funds += MissionManager.GetComponent<MissionBase>().reward;
+            MissionManager.GetComponent<MissionBase>().reward = 0;
+            Destroy(MissionManager);
+            
         }
 	}
     

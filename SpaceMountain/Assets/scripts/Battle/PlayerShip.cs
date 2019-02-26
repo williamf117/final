@@ -45,11 +45,11 @@ public class PlayerShip : Ship
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationspeed);
 
             FireOnTarget();
-            LineRenderer lr = GetComponent<LineRenderer>();
-            lr.SetPosition(0, transform.position);
-            lr.SetPosition(1,target.transform.position);
-            lr.startColor=Color.red;
-            lr.endColor = Color.red;
+            //LineRenderer lr = GetComponent<LineRenderer>();
+            //lr.SetPosition(0, transform.position);
+            //lr.SetPosition(1,target.transform.position);
+            //lr.startColor=Color.red;
+            //lr.endColor = Color.red;
 
         }
         else

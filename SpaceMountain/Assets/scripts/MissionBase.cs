@@ -21,10 +21,11 @@ public class MissionBase : MonoBehaviour
     [SerializeField]
     GameObject PrefabFleet;
     public bool completed = false;
+   
     // Start is called before the first frame update
     void Start()
     {
-       
+        DontDestroyOnLoad(this);
         desto = GameObject.Find("Io");
         GameObject fleet= Instantiate(PrefabFleet);
         fleet.GetComponent<Fleet>().Target = desto;

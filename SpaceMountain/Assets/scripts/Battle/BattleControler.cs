@@ -113,7 +113,7 @@ public class BattleControler : MonoBehaviour
             move.y = Input.GetAxis("Vertical");
         }
         move.z = 0;
-        move = move.normalized*.5f;
+        move = move.normalized*.25f;
         gameObject.transform.position = gameObject.transform.position + move;
        
     }

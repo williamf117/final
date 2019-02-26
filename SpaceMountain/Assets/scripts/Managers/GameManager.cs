@@ -72,6 +72,10 @@ public class GameManager : MonoBehaviour
         {
             //SceneManager.LoadScene("testBattle");
             SceneManager.LoadScene(name);
+            if (SceneManager.GetActiveScene().name == "Jupiter" && GetComponent < MissionBase >()== null )
+            {
+                gameObject.AddComponent<MissionBase>();
+            }
         }
         catch
         {

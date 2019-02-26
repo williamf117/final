@@ -5,7 +5,7 @@ using UnityEngine;
 public class EanamyBase : Ship
 {
     [SerializeField]
-    float maxrainge = 15, minrainge = 5, moveSpeed, cooldown=3;//effective rainge of the gun. 
+    float maxrainge = 15, minrainge = 5, moveSpeed=.5f, cooldown=3;//effective rainge of the gun. 
     [SerializeField]
     GameObject bullet;
    
@@ -104,8 +104,8 @@ public class EanamyBase : Ship
     void CloseToRaing()
     {
         Vector2 vectorToTarget = currenttarget.transform.position - transform.position;
-        // transform.position = Vector3.MoveTowards(transform.position, currenttarget.transform.position, Time.deltaTime * moveSpeed);
-        rb2d.velocity = vectorToTarget.normalized*3;
+       //  transform.position = Vector3.MoveTowards(transform.position, currenttarget.transform.position, Time.deltaTime * moveSpeed);
+       rb2d.velocity = vectorToTarget.normalized*moveSpeed;
      
     }
     /// <summary>
@@ -136,6 +136,10 @@ public class EanamyBase : Ship
             {
                 Destroy(gameObject);
             }
+        }
+        if (collision.gameObject.tag == "HostileFleet")
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
         }
     }
 }
