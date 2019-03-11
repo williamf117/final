@@ -44,10 +44,10 @@ public class Player : MonoBehaviour {
         {
             MissionManager = GameObject.FindGameObjectWithTag("MissionControler");
         }
-        if (MissionManager.GetComponent<MissionBase>().completed)
+        if (MissionManager.GetComponent<Mission1>().completed)
         {
-            funds += MissionManager.GetComponent<MissionBase>().reward;
-            MissionManager.GetComponent<MissionBase>().reward = 0;
+            funds += MissionManager.GetComponent<Mission1>().reward;
+            MissionManager.GetComponent<Mission1>().reward = 0;
             Destroy(MissionManager);
             
         }

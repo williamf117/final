@@ -15,8 +15,8 @@ public class InGameMenue : MonoBehaviour
     [SerializeField]
     Canvas hud;
     GameObject mb;
-    MissionBase currMission;
-    public MissionBase CurrentMIssion
+    Mission1 currMission;
+    public Mission1 CurrentMIssion
     {
         get { return currMission; }
         set { currMission = value; }

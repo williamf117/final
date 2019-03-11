@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     string lastscene;
     List<GameObject> playerfleet = new List<GameObject>();//list of all ships in the players fleet.
     state currsate = state.map;
+    
     float playerfunds;
     public float Funds
     {
@@ -72,9 +73,9 @@ public class GameManager : MonoBehaviour
         {
             //SceneManager.LoadScene("testBattle");
             SceneManager.LoadScene(name);
-            if (SceneManager.GetActiveScene().name == "Jupiter" && GetComponent < MissionBase >()== null )
+            if (SceneManager.GetActiveScene().name == "Jupiter" && GetComponent < Mission1 >()== null )
             {
-                gameObject.AddComponent<MissionBase>();
+                gameObject.AddComponent<Mission1>();
             }
         }
         catch

@@ -61,6 +61,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\2D Space Kit\Scripts\AimBeam.cs" />
+    <Compile Include="Assets\2D Space Kit\Scripts\Crosshair.cs" />
+    <Compile Include="Assets\2D Space Kit\Scripts\CustomPointer.cs" />
+    <Compile Include="Assets\2D Space Kit\Scripts\ExampleShipControl.cs" />
+    <Compile Include="Assets\2D Space Kit\Scripts\ParallaxLayer.cs" />
+    <Compile Include="Assets\2D Space Kit\Scripts\PlayerControlledTurret.cs" />
+    <Compile Include="Assets\2D Space Kit\Scripts\Projectile.cs" />
+    <Compile Include="Assets\2D Space Kit\Scripts\PSDestroy.cs" />
+    <Compile Include="Assets\2D Space Kit\Scripts\ShipCamera.cs" />
+    <Compile Include="Assets\Sci-Fi UI Pack\Resources\Scripts\JustRotate.cs" />
+    <Compile Include="Assets\Sci-Fi UI Pack\Resources\Scripts\SliderValuePass.cs" />
     <Compile Include="Assets\scripts\Admiral.cs" />
     <Compile Include="Assets\scripts\Battle\BattleControler.cs" />
     <Compile Include="Assets\scripts\Battle\bullet.cs" />
@@ -76,11 +87,20 @@
     <Compile Include="Assets\scripts\Menues\HUD.cs" />
     <Compile Include="Assets\scripts\Menues\InGameMenue.cs" />
     <Compile Include="Assets\scripts\Menues\MissionBreafing.cs" />
+    <Compile Include="Assets\scripts\Mission1.cs" />
     <Compile Include="Assets\scripts\MissionBase.cs" />
     <Compile Include="Assets\scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\Satellite.cs" />
+    <None Include="Assets\2D Space Kit\Scripts\WARNING.txt" />
+    <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />
+    <None Include="Assets\2D Space Kit\Ships and Stations\Rendering Tip.txt" />
+    <None Include="Assets\2D Space Kit\Background Elements\Stars\Recolor Us!.txt" />
+    <None Include="Assets\2D Space Kit\Backgrounds\Fantasy Purple 2048\Note.txt" />
+    <None Include="Assets\2D Space Kit\Background Elements\Planets\Planet Masks\Note.txt" />
     <None Include="Assets\Resources\Sprites\planet\licence.txt" />
+    <None Include="Assets\2D Space Kit\Readme.txt" />
+    <None Include="Assets\2D Space Kit\Particles (Sprites)\Note on Flares.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/William Forrest/Documents/final/SpaceMountain/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

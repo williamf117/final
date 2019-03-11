@@ -576,11 +576,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2076254329787267242, guid: 6ed1a83f2213a8b4eb54f737be916150,
-        type: 3}
-      propertyPath: mapMoveSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6028970193075550582, guid: 6ed1a83f2213a8b4eb54f737be916150,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -645,6 +640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2076254329787267242, guid: 6ed1a83f2213a8b4eb54f737be916150,
+        type: 3}
+      propertyPath: mapMoveSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ed1a83f2213a8b4eb54f737be916150, type: 3}
