@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InGameMenue : MonoBehaviour
 {
@@ -15,23 +16,24 @@ public class InGameMenue : MonoBehaviour
     [SerializeField]
     Canvas hud;
     GameObject mb;
-    Mission1 currMission;
-    public Mission1 CurrentMIssion
-    {
-        get { return currMission; }
-        set { currMission = value; }
-    }
-    // Start is called before the first frame update
+    MissionBase currMission;
+    GameManager gm;
+  // before the first frame update
     void Start()
     {
-        playerscript = GameObject.FindWithTag("Player").GetComponent<Player>();
+        gm = GameManager.instance;
+        EventManager.AddMissionCompleteListeners(MissionBreafing);
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        playerscript = GameObject.FindWithTag("Player").GetComponent<Player>();
         funds.text = "Funds: "+playerscript.Funds.ToString();
-        Fule.text = "Fule: " + playerscript.Fule.ToString();
+        Fule.text = "Fuel: " + playerscript.Fule.ToString();
+        currMission = gm.CurrMission;
     }
 
     public void navigation()
@@ -51,7 +53,7 @@ public class InGameMenue : MonoBehaviour
     }
     public void ToSole()
     {
-        
+        SceneManager.LoadScene("sole");
     }
     public void MissionBreafing(string descriptionString)
     {
@@ -60,6 +62,11 @@ public class InGameMenue : MonoBehaviour
         Text description = mb.transform.Find("description").GetComponent<Text>();
         description.text = descriptionString;
     }
+
+
+
+
+
 
 
 }

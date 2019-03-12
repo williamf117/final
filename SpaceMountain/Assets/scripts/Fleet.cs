@@ -27,11 +27,19 @@ public class Fleet : MonoBehaviour
     {
         bs = new BattleStartEvent();
         EventManager.AddEnterBattleInvoker(this);
-        fleet.Add(ships[0]);
-        fleet.Add(ships[0]);
-        fleet.Add(ships[0]);
-        fleet.Add(ships[0]);
+        //fleet.Add(ships[0]);
+        //fleet.Add(ships[0]);
+        //fleet.Add(ships[0]);
+        //fleet.Add(ships[0]);
        
+    }
+    public void MakeFleet(int danger)
+    {
+        fleet.Clear();
+        for(int i = 0; i<danger; i++)
+        {
+            fleet.Add(ships[0]);
+        }
     }
 
    /// <summary>
@@ -49,14 +57,25 @@ public class Fleet : MonoBehaviour
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * mapMoveSpeed);
+            mapMoveSpeed += 20 * Time.deltaTime;
+            
+        
+        }
+        else
+        {
+            mapMoveSpeed = 10;
         }
     }
+
+    
      void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("coll");
         if (collision.gameObject.tag == "Player")
         {
+
             bs.Invoke(fleet);
+            //Destroy(gameObject);
         }
     }
 

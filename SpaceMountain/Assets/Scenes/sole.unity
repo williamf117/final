@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 2
   growth: 1
+  scail: 5
 --- !u!58 &34955868
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -390,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 0.5
   growth: 1
+  scail: 5
 --- !u!58 &56368658
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -501,6 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 0.003060606
   growth: 1
+  scail: 5
 --- !u!58 &336363559
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -840,6 +843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 0.25
   growth: 1
+  scail: 5
 --- !u!58 &1004500735
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -944,75 +948,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2075188506}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1147996930
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 576301018193890944, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 66.28444
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -12.428772
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.6601359
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7288959017aaa6a448e1403724310dff, type: 3}
 --- !u!1 &1268967988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 0.04450704
   growth: 1
+  scail: 5
 --- !u!58 &1268967992
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1138,7 +1074,7 @@ GameObject:
   - component: {fileID: 1331454736}
   - component: {fileID: 1331454735}
   m_Layer: 0
-  m_Name: player_spr
+  m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1193,6 +1129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1a9fedfbf195544b2358dc06cc40ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllShips: []
   mapMoveSpeed: 50
 --- !u!212 &1331454738
 SpriteRenderer:
@@ -1231,7 +1168,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b91b145055cf1dd45b181181574377ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39f5d360eb38284fb54a62672b5ec9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1351,6 +1288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 0.00590476
   growth: 1
+  scail: 5
 --- !u!58 &1411220702
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1558,6 +1496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 0.01589831
   growth: 1
+  scail: 5
 --- !u!58 &1582329205
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1669,6 +1608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 0.77
   growth: 1
+  scail: 5
 --- !u!58 &1589301493
 CircleCollider2D:
   m_ObjectHideFlags: 0

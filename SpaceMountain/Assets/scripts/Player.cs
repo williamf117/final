@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    int funds=10000;
-    int fule = 100;
-    GameObject MissionManager;
+ 
+    GameManager gm;
+    [SerializeField]
+    List<GameObject> AllShips = new List<GameObject>();
+    List<GameObject> playerFleet = new List<GameObject>();
+   
     public int Fule
     {
-        get { return fule; }
+        get { return 100; }
     }
-    public int Funds
+    public float Funds
     {
-        get { return funds; }
+        get { return gm.Funds; }
     }
 
     GameObject Desto=null;
@@ -26,8 +29,9 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Sprite s = GetComponent<SpriteRenderer>().sprite;
-  
-        MissionManager = GameObject.FindGameObjectWithTag("MissionControler");
+        gm = GameManager.instance;
+      
+      
         //make a larger versoion of the sprite for the map veiw 
         GameObject go = new GameObject();
         go.AddComponent<SpriteRenderer>().sprite = s;
@@ -36,21 +40,14 @@ public class Player : MonoBehaviour {
         //  Instantiate(go);
         go.transform.parent = gameObject.transform;
         go.layer = 9;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (MissionManager == null)
-        {
-            MissionManager = GameObject.FindGameObjectWithTag("MissionControler");
-        }
-        if (MissionManager.GetComponent<Mission1>().completed)
-        {
-            funds += MissionManager.GetComponent<Mission1>().reward;
-            MissionManager.GetComponent<Mission1>().reward = 0;
-            Destroy(MissionManager);
-            
-        }
+        
+        
+      //  gm.playerfleet = playerFleet;
 	}
     
     private void FixedUpdate()
@@ -58,12 +55,16 @@ public class Player : MonoBehaviour {
         if (Desto != null)
         {
           transform.position=  Vector3.MoveTowards(transform.position, Desto.transform.position, mapMoveSpeed*Time.deltaTime);
-
+            mapMoveSpeed += 10 * Time.deltaTime;
 
             Vector3 vectorToTarget = Desto.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * mapMoveSpeed);
+        }
+        else
+        {
+            mapMoveSpeed = 10;
         }
     }
 

@@ -5,13 +5,17 @@ using UnityEngine.Sprites;
 
 public class PlayerShip : Ship
 {
-   Vector3 desto=Vector3.zero;
-    GameObject target = null;
+    protected Vector3 desto=Vector3.zero;
+    protected GameObject target = null;
     
-    float cooldown = 2;
+   protected float cooldown = 2;
     [SerializeField]
-    GameObject bullet;
-    
+   protected GameObject bullet;
+   protected float speed =.01f;
+    public float Speed
+    {
+        set { speed = value; }
+    }
 
    
 
@@ -22,24 +26,26 @@ public class PlayerShip : Ship
     // Update is called once per frame
     void Update()
     {
+        Vector3 vectorToTarget = desto - transform.position;
         if (desto != Vector3.zero)
         {
             //turn to face target
 
-            Vector3 vectorToTarget = desto - transform.position;
+            
+        
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationspeed);
 
             //move to postion 
-            transform.position = Vector3.MoveTowards(transform.position,new Vector3(desto.x,desto.y,-1), .01f);
+            transform.position = Vector3.MoveTowards(transform.position,new Vector3(desto.x,desto.y,-1), speed);
             
         }
 
         if (target != null)
         {
 
-            Vector3 vectorToTarget = target.transform.position - transform.position;
+             vectorToTarget = target.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationspeed);
@@ -52,11 +58,11 @@ public class PlayerShip : Ship
             //lr.endColor = Color.red;
 
         }
-        else
-        {
-            GetComponent<LineRenderer>().SetPosition(0, Vector3.zero);
-            GetComponent<LineRenderer>().SetPosition(1, Vector3.zero);
-        }
+        //else
+        //{
+        //    GetComponent<LineRenderer>().SetPosition(0, Vector3.zero);
+        //    GetComponent<LineRenderer>().SetPosition(1, Vector3.zero);
+        //}
     }
     public void MoveToPosition(Vector3 position)
     {
@@ -64,20 +70,8 @@ public class PlayerShip : Ship
        
         //Debug.Log("CALLED");
     }
-    //void OnMouseOver()
-    //{
-        
-    //    mouseon = true;
-    //    gameObject.GetComponent<SpriteRenderer>().sprite = Hilight;
-
-    //}
-
-    //void OnMouseExit()
-    //{
-    //    gameObject.GetComponent<SpriteRenderer>().sprite = noHilight;
-    //    mouseon = false;
-    //}
-    void FireOnTarget()
+  
+   public virtual void FireOnTarget()
     {
         if (!oncooldown)
         {

@@ -15,12 +15,23 @@ public class GameManager : MonoBehaviour
     EventManager eventmanager;
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
     [SerializeField]
-    List<GameObject> ships = new List<GameObject>();//list of all ships that are in the game. 
+    public List<GameObject> ships = new List<GameObject>();//list of all ships that are inthe eanamy fleet 
     string lastscene;
-    List<GameObject> playerfleet = new List<GameObject>();//list of all ships in the players fleet.
+   public  List<GameObject> playerfleet = new List<GameObject>();//list of all ships in the players fleet.
     state currsate = state.map;
-    
-    float playerfunds;
+    MissionBase currMission;
+    Satellite locationLocal, locationGlobal;
+    int misioncount = 1;
+
+   
+
+    public MissionBase CurrMission
+    {
+        get { return currMission; }
+        set { currMission = value; }
+    }
+
+    float playerfunds=1000;
     public float Funds
     {
         get { return playerfunds; }
@@ -50,6 +61,8 @@ public class GameManager : MonoBehaviour
         // Start is called before the first frame update
         void Start()
     {
+      
+
         //eventmanager = new EventManager();
         EventManager.AddNewenterPlanetListener(changesene);
         EventManager.AddNewEnterBattleListener(startBattle);
@@ -59,6 +72,31 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currMission!=null && currMission.completed)
+        {
+            Funds += currMission.reward;
+            Destroy(currMission);
+        }
+
+
+        //get the next mission loded
+        if (currMission == null) {
+            switch (misioncount)
+            {
+                case 1:
+                    currMission = gameObject.AddComponent<Mission1>();
+                    misioncount++;
+                    break;
+                case 2:
+                    currMission = gameObject.AddComponent<Mission2>();
+                    misioncount++;
+                    break;
+                case 3:
+                    currMission = null;
+                    break;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.M))
         {
             SceneManager.LoadScene("Menue");
@@ -73,10 +111,7 @@ public class GameManager : MonoBehaviour
         {
             //SceneManager.LoadScene("testBattle");
             SceneManager.LoadScene(name);
-            if (SceneManager.GetActiveScene().name == "Jupiter" && GetComponent < Mission1 >()== null )
-            {
-                gameObject.AddComponent<Mission1>();
-            }
+          
         }
         catch
         {
@@ -93,7 +128,11 @@ public class GameManager : MonoBehaviour
     /// <param name="fleet"></param>
     public void startBattle(List<GameObject> fleet)
     {
+       // playerfleet=
+        ships = fleet;
         lastscene = SceneManager.GetActiveScene().name;
+        
+        
         SceneManager.LoadScene("testBattle");
         currsate = state.battle;
         Vector2 pos = Vector2.zero;
@@ -110,5 +149,9 @@ public class GameManager : MonoBehaviour
         currsate = state.map;
         SceneManager.LoadScene(lastscene);
     }
+    //public void AddPlayerShip(GameObject ship)
+    //{
+    //    playerfleet.Add(ship);
+    //}
 
 }

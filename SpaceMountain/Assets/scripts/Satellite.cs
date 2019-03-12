@@ -11,7 +11,7 @@ public class Satellite : MonoBehaviour
     GameObject sun;
     // Admiral governor;
     [SerializeField]
-    float year = 1, growth = 1;
+    float year = 1, growth = 1, scail=5;
     enterPlanetEvent enterplanet;
     public string Name{
         get { return gameObject.name; }
@@ -25,7 +25,7 @@ public class Satellite : MonoBehaviour
         GameObject go = new GameObject();
         go.AddComponent<SpriteRenderer>().sprite = s;
         go.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
-        go.transform.localScale = new Vector3(10, 10, -1);
+        go.transform.localScale = new Vector3(scail, scail, -1);
         //  Instantiate(go);
         go.transform.parent = gameObject.transform;
         go.layer = 9;

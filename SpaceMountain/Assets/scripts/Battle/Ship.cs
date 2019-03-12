@@ -12,6 +12,7 @@ public class Ship : MonoBehaviour {
     protected float health = 100;
     protected float rotationspeed = 3;
    protected  bool mouseon = false;
+ 
     [SerializeField]
     Sprite Hilight;
     Sprite noHilight;
@@ -23,7 +24,7 @@ public class Ship : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         noHilight = GetComponentInChildren<SpriteRenderer>().sprite;
         Debug.Log(noHilight.name);
         rb2d = GetComponent<Rigidbody2D>();
@@ -48,6 +49,7 @@ public class Ship : MonoBehaviour {
 
         mouseon = true;
         gameObject.GetComponent<SpriteRenderer>().sprite = Hilight;
+        //Debug.Log(mouseon);
 
     }
 

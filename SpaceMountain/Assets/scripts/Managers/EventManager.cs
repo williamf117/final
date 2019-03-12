@@ -35,6 +35,27 @@ public class EventManager : MonoBehaviour
     static List<BattleControler> endBattleinvoker = new List<BattleControler>();
     static List<UnityAction> endbattlelisteners = new List<UnityAction>();
 
+    static List<MissionBase> MissionCompleateInvokers = new List<MissionBase>();
+    static List<UnityAction<string>> MissionCompleateListeners = new List<UnityAction<string>>();
+
+    public static void AddMissionCompleatInvokers(MissionBase invoker)
+    {
+        MissionCompleateInvokers.Add(invoker);
+        foreach(UnityAction<string> listener in MissionCompleateListeners)
+        {
+            invoker.AddMissionCompleteListener(listener);
+        }
+    }
+
+    public static void AddMissionCompleteListeners(UnityAction<string> listener)
+    {
+        MissionCompleateListeners.Add(listener);
+        foreach(MissionBase invoker in MissionCompleateInvokers)
+        {
+            invoker.AddMissionCompleteListener(listener);
+        }
+    }
+
     #region entyerplanet event
     public static void AddNewEnterPlanetInvoker(Satellite invoker)
     {
@@ -108,6 +129,7 @@ public class EventManager : MonoBehaviour
         foreach (BattleControler invoker in endBattleinvoker)
         {
             invoker.addEndBattleListener(listener);
+
         }
     }
 }

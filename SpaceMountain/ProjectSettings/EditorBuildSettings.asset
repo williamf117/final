@@ -17,10 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testBattle.unity
     guid: a6ea2ed3c3778c040a74482c3e1b9f51
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/earth.unity
     guid: 62e42ae443c266840be97b4578c74b25
   - enabled: 1
     path: Assets/Scenes/Jupiter.unity
     guid: 4f9c7db5f807dc947a2fdbe9323cb17a
+  - enabled: 1
+    path: Assets/Scenes/Controles.unity
+    guid: f7824a35ee904264ebadc796e9af03b2
   m_configObjects: {}

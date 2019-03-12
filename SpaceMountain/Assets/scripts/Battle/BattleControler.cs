@@ -15,20 +15,47 @@ public class BattleControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject[] fleet;
-        GameObject[] eanamyFleet;
-        fleet = GameObject.FindGameObjectsWithTag("PlayerShip");
-        eanamyFleet = GameObject.FindGameObjectsWithTag("HostileFleet");
+        Vector3 playerSpawn = GameObject.Find("player spawn").transform.position;
+        Vector3 eanamySpawn = GameObject.Find("eanamy spawn").transform.position;
+        foreach (GameObject go in GameManager.instance.playerfleet) {
+            if (go.name == "Frigate 1") {
+                Fleet.Add((GameObject)Resources.Load("prefabs/Frigate 1"));
+            }
+            else
+            {
+                Fleet.Add((GameObject)Resources.Load("prefabs/playershipBase"));
+            }
+        }
+        EanamyFleet = GameManager.instance.ships;
+        float offset = 0;
+
+        for(int i=0; i < Fleet.Count ; i++)
+        {
+            Fleet[i] = Instantiate(Fleet[i]);
+            Fleet[i].transform.position = new Vector3(playerSpawn.x, playerSpawn.y + offset, 0);
+            offset += 3;
+            if (offset > 30)
+            {
+                offset = 0;
+                playerSpawn.x += 5;
+            }
+        }
+        offset = 0;
+        for (int i = 0; i < EanamyFleet.Count; i++)
+        {
+            EanamyFleet[i] = Instantiate(EanamyFleet[i]);
+            EanamyFleet[i].transform.position = new Vector3(eanamySpawn.x, eanamySpawn.y + offset, 0);
+            offset += 5;
+            if (offset > 15)
+            {
+                offset = 0;
+                playerSpawn.x += 5;
+            }
+        }
         fin = new EndBattle();
         EventManager.AddleveBattleinvoker(this);
-        foreach(GameObject go in fleet)
-        {
-            Fleet.Add(go);
-        }
-        foreach(GameObject go in eanamyFleet)
-        {
-            EanamyFleet.Add(go);
-        }
+        
+       
     }
 
     // Update is called once per frame
@@ -37,7 +64,7 @@ public class BattleControler : MonoBehaviour
 
         if (Fleet.ToArray().Length == 0)
         {
-            SceneManager.LoadScene("Menue");
+          //  SceneManager.LoadScene("Menue");
         }
         if (EanamyFleet.ToArray().Length == 0)
         {
@@ -66,12 +93,12 @@ public class BattleControler : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
           
-            foreach (GameObject ship in Fleet.ToArray())
+            foreach (GameObject ship in Fleet)
             {
                 if (ship.GetComponent<PlayerShip>().MouseOn)
                 {
                     selected = ship.GetComponent<PlayerShip>();
-                    Debug.Log(selected);
+                    Debug.Log("selected:"+selected);
                 }
             }
         }
@@ -79,7 +106,7 @@ public class BattleControler : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             bool onEanamy = false;
-            foreach (GameObject go in EanamyFleet.ToArray()) {
+            foreach (GameObject go in EanamyFleet) {
                 onEanamy = false;
                 if (go.GetComponent<EanamyBase>().MouseOn)
                 {
@@ -103,6 +130,7 @@ public class BattleControler : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //camra controles 
         Vector3 move = Vector3.zero;
         if (Input.GetAxis("Horizontal") != 0)
         {
@@ -115,7 +143,8 @@ public class BattleControler : MonoBehaviour
         move.z = 0;
         move = move.normalized*.25f;
         gameObject.transform.position = gameObject.transform.position + move;
-       
+        float zoom = Input.GetAxisRaw("Mouse ScrollWheel") * 1;
+        Camera.main.orthographicSize += zoom;
     }
 
     public void addEndBattleListener(UnityAction listener)
