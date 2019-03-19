@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testBattle.unity
     guid: a6ea2ed3c3778c040a74482c3e1b9f51
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/earth.unity
     guid: 62e42ae443c266840be97b4578c74b25
   - enabled: 1

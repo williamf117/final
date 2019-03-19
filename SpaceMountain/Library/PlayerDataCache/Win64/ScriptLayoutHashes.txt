@@ -6,6 +6,7 @@ Assets/Scenes/Menue.unity
 Assets/Scenes/sole.unity
 Assets/Scenes/Mars.unity
 Assets/Scenes/testBattle.unity
+Assets/Scenes/earth.unity
 Assets/Scenes/Jupiter.unity
 Assets/Scenes/Controles.unity
 SceneListEnd?
