@@ -49,7 +49,7 @@ public class InGameMenue : MonoBehaviour
     }
     public void Fleet()
     {
-        Debug.Log("fleet");
+       Instantiate( Resources.Load("prefabs/store"));
     }
     public void ToSole()
     {

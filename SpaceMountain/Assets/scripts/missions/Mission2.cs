@@ -10,13 +10,17 @@ public class Mission2 : MissionBase
     private void Start()
     {
         drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
-        reward = 5000;
-        description = "There has been a brake out of the logic plage on the moon of phobos You must travle to mars with medical equipment";
+        reward = 2000;
+        description = "There has been a brake out of the logic plague on the moon of Phobos You must travel to mars with medical equipment";
         prefabFleet = (GameObject)Resources.Load("prefabs/Prefabfleet");
         EventManager.AddMissionCompleatInvokers(this);
     }
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name != "testBattle")
+        {
+            drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
+        }
         if (SceneManager.GetActiveScene().name != "sole" && SceneManager.GetActiveScene().name != "Mars")
         {
             desto = null;

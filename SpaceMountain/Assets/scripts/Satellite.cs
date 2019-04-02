@@ -63,7 +63,7 @@ public class Satellite : MonoBehaviour
         }
         catch
         {
-            Debug.Log("no parent");
+           // Debug.Log("no parent");
 
         }
     }

@@ -557,9 +557,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "In the map use right click to open the navigation window. \nUse the mission
-    button to check what your current mission is. \nIn battle use wasd to move the
-    camera. left click to select a ship and right click to set its destonatio/ target. "
+  m_Text: "In the map use right click to open the navigation window. \r\nUse the mission
+    button to check what your current mission is. \r\nIn battle use wasd to move the
+    camera. left click to select a ship and right click to set its destination/ target.\r\n"
 --- !u!222 &1295895644
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Conrols
+  m_Text: controles
 --- !u!222 &1899013852
 CanvasRenderer:
   m_ObjectHideFlags: 0

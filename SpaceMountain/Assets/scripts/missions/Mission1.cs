@@ -16,7 +16,7 @@ public class Mission1 : MissionBase
     // Start is called before the first frame update
     void Start()
     {
-        reward = 10000;
+        reward = 500;
         description = "go to IO and destroy the fleet there";
         //DontDestroyOnLoad(this);
         desto = GameObject.Find("Io");
@@ -34,6 +34,8 @@ public class Mission1 : MissionBase
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name!="testBattle")
+             drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
         if (fleet==null && SceneManager.GetActiveScene().name == "Jupiter")
         {
             completed = true;

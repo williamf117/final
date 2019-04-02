@@ -7,11 +7,18 @@ public class PlayerShip : Ship
 {
     protected Vector3 desto=Vector3.zero;
     protected GameObject target = null;
-    
+    protected float price = 1000;
    protected float cooldown = 2;
     [SerializeField]
    protected GameObject bullet;
-   protected float speed =.01f;
+   protected float speed =.05f;
+    
+
+    public float Price
+    {
+        get { return price; }
+    }
+
     public float Speed
     {
         set { speed = value; }
@@ -31,7 +38,11 @@ public class PlayerShip : Ship
         {
             //turn to face target
 
-            
+            if( vectorToTarget.magnitude<5)
+            {
+                desto = Vector3.zero;
+                
+            }
         
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -39,6 +50,7 @@ public class PlayerShip : Ship
 
             //move to postion 
             transform.position = Vector3.MoveTowards(transform.position,new Vector3(desto.x,desto.y,-1), speed);
+            
             
         }
 
@@ -51,19 +63,14 @@ public class PlayerShip : Ship
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationspeed);
 
             FireOnTarget();
-            //LineRenderer lr = GetComponent<LineRenderer>();
-            //lr.SetPosition(0, transform.position);
-            //lr.SetPosition(1,target.transform.position);
-            //lr.startColor=Color.red;
-            //lr.endColor = Color.red;
-
+        
         }
-        //else
-        //{
-        //    GetComponent<LineRenderer>().SetPosition(0, Vector3.zero);
-        //    GetComponent<LineRenderer>().SetPosition(1, Vector3.zero);
-        //}
+        
     }
+    /// <summary>
+    /// a function to set the desto for the ship.
+    /// </summary>
+    /// <param name="position"></param>
     public void MoveToPosition(Vector3 position)
     {
         desto = position;
@@ -77,7 +84,7 @@ public class PlayerShip : Ship
         {
             GameObject round = Instantiate(bullet, transform.position, transform.rotation);
             oncooldown = true;
-            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<CircleCollider2D>());
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
 
 
         }

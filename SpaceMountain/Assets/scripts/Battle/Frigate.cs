@@ -25,10 +25,10 @@ public class Frigate : PlayerShip
             if (!oncooldown)
             {
                 GameObject round = Instantiate(bullet, transform.GetChild(0).position, transform.rotation);
-                Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<CircleCollider2D>());
+                Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
 
                 round = Instantiate(bullet, transform.GetChild(1).position,transform.rotation);
-                Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<CircleCollider2D>());
+                Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
                 oncooldown = true;
                 Vector3 vectorToTarget = target.transform.position - transform.position;
                 float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;

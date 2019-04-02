@@ -12,6 +12,8 @@ public class MissionBase : MonoBehaviour
     private void Awake()
     {
         missioncomplete = new MissionCompleateEvent();
+        drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
+        prefabFleet = (GameObject)Resources.Load("prefabs/Prefabfleet");
     }
 
     protected GameObject desto;

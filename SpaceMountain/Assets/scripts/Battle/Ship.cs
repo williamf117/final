@@ -9,12 +9,12 @@ public class Ship : MonoBehaviour {
 
     protected bool inrainge = false;
     protected bool oncooldown = false;
-    protected float health = 100;
+    public float health = 100;
     protected float rotationspeed = 3;
    protected  bool mouseon = false;
- 
-    [SerializeField]
-    Sprite Hilight;
+   
+    //[SerializeField]
+    //Sprite Hilight;
     Sprite noHilight;
    protected Rigidbody2D rb2d;
     public bool MouseOn
@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         noHilight = GetComponentInChildren<SpriteRenderer>().sprite;
-        Debug.Log(noHilight.name);
+        //Debug.Log(noHilight.name);
         rb2d = GetComponent<Rigidbody2D>();
         Sprite s = GetComponent<SpriteRenderer>().sprite;
 
@@ -48,14 +48,14 @@ public class Ship : MonoBehaviour {
     {
 
         mouseon = true;
-        gameObject.GetComponent<SpriteRenderer>().sprite = Hilight;
-        //Debug.Log(mouseon);
+        //gameObject.GetComponent<SpriteRenderer>().sprite = Hilight;
+        ///Debug.Log(mouseon);
 
     }
 
     void OnMouseExit()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = noHilight;
+       // gameObject.GetComponent<SpriteRenderer>().sprite = noHilight;
         mouseon = false;
     }
 

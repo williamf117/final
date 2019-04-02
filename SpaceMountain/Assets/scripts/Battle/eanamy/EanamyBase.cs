@@ -64,7 +64,7 @@ public class EanamyBase : Ship
                 {
                     GameObject round = Instantiate(bullet, transform.position, transform.rotation);
                     oncooldown = true;
-                    Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<CircleCollider2D>());
+                    Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
 
 
                 }
@@ -137,7 +137,15 @@ public class EanamyBase : Ship
                 Destroy(gameObject);
             }
         }
-        if (collision.gameObject.tag == "HostileFleet")
+        if (collision.gameObject.tag == "Projectile")
+        {
+            health -= 30;
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        if (collision.gameObject.tag == "HostileFleet"|| collision.gameObject.tag == "PlayerShip")
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
         }

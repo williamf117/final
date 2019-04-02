@@ -21,9 +21,17 @@ public class BattleControler : MonoBehaviour
             if (go.name == "Frigate 1") {
                 Fleet.Add((GameObject)Resources.Load("prefabs/Frigate 1"));
             }
-            else
+            else if (go.name == "playershipBase")
             {
                 Fleet.Add((GameObject)Resources.Load("prefabs/playershipBase"));
+            }
+            else if(go.name == "Titan")
+            {
+                Fleet.Add((GameObject)Resources.Load("prefabs/Titan"));
+            }
+            else if (go.name == "PlayerCruiser")
+            {
+                Fleet.Add((GameObject)Resources.Load("prefabs/PlayerCruiser"));
             }
         }
         EanamyFleet = GameManager.instance.ships;
@@ -37,7 +45,7 @@ public class BattleControler : MonoBehaviour
             if (offset > 30)
             {
                 offset = 0;
-                playerSpawn.x += 5;
+                playerSpawn.x += 30;
             }
         }
         offset = 0;
@@ -126,6 +134,17 @@ public class BattleControler : MonoBehaviour
             }
             
         }
+
+        //cheat controle
+        if (Input.GetKey(KeyCode.Z))
+        {
+            foreach(GameObject go in EanamyFleet)
+            {
+                Destroy(go);
+            }
+        }
+
+
 
     }
     private void FixedUpdate()

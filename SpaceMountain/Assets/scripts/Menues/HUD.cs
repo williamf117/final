@@ -60,6 +60,7 @@ public class HUD : MonoBehaviour {
             Button tempButton = goButton.GetComponent<Button>();
             tempButton.onClick.AddListener(delegate { TravelTo(go); });
             var text= tempButton.GetComponentInChildren<Text>().text = go.name;
+            tempButton.interactable = true;
             i++;
 
 

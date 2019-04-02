@@ -17,21 +17,29 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public List<GameObject> ships = new List<GameObject>();//list of all ships that are inthe eanamy fleet 
     string lastscene;
-   public  List<GameObject> playerfleet = new List<GameObject>();//list of all ships in the players fleet.
+    public List<GameObject> playerfleet = new List<GameObject>();//list of all ships in the players fleet.
+    public List<GameObject> playableShips = new List<GameObject>();//list of all playable ships for the store. 
     state currsate = state.map;
     MissionBase currMission;
     Satellite locationLocal, locationGlobal;
     int misioncount = 1;
 
+    //public acssesor for player fleet
+    public List<GameObject> PlayerFleet{
+        get { return playerfleet; }
+        set { playerfleet = value; }
+        }
    
-
+    /// <summary>
+    /// puclic acssesor for the currenr mission
+    /// </summary>
     public MissionBase CurrMission
     {
         get { return currMission; }
         set { currMission = value; }
     }
 
-    float playerfunds=1000;
+    float playerfunds=500;
     public float Funds
     {
         get { return playerfunds; }
@@ -92,6 +100,14 @@ public class GameManager : MonoBehaviour
                     misioncount++;
                     break;
                 case 3:
+                    currMission = gameObject.AddComponent<Mission3>();
+                    misioncount++;
+                    break;
+                case 4:
+                    currMission = gameObject.AddComponent<Mission4>();
+                    misioncount++;
+                    break;
+                case 5:
                     currMission = null;
                     break;
             }
