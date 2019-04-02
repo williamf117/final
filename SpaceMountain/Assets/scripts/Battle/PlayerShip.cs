@@ -12,7 +12,12 @@ public class PlayerShip : Ship
     [SerializeField]
    protected GameObject bullet;
    protected float speed =.05f;
-    
+    protected float maxSpeed;
+
+    private void Awake()
+    {
+        maxSpeed = speed;
+    }
 
     public float Price
     {
@@ -37,7 +42,7 @@ public class PlayerShip : Ship
         if (desto != Vector3.zero)
         {
             //turn to face target
-
+            speed = maxSpeed;
             if( vectorToTarget.magnitude<5)
             {
                 desto = Vector3.zero;
@@ -104,10 +109,14 @@ public class PlayerShip : Ship
         if (collision.gameObject.tag == "bullet")
         {
             health -= 20;
-            if(health<=0)
+            if (health <= 0)
             {
                 Destroy(gameObject);
             }
+        }
+        if (collision.gameObject.tag == "PlayerShip")
+        {
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
         }
     }
 

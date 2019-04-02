@@ -123,6 +123,7 @@ public class BattleControler : MonoBehaviour
                 if (onEanamy)
                   {
                     selected.GetComponent<PlayerShip>().setTarget(go);
+                    selected.GetComponent<PlayerShip>().MoveToPosition(Vector3.zero);
                     Debug.Log("on target");
                   }
             }
@@ -130,6 +131,7 @@ public class BattleControler : MonoBehaviour
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (selected != null && !onEanamy)
             {
+                selected.GetComponent<PlayerShip>().setTarget(null);
                 selected.GetComponent<PlayerShip>().MoveToPosition(mouse);
             }
             

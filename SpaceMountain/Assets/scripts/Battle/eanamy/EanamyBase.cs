@@ -147,7 +147,7 @@ public class EanamyBase : Ship
         }
         if (collision.gameObject.tag == "HostileFleet"|| collision.gameObject.tag == "PlayerShip")
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
         }
     }
 }

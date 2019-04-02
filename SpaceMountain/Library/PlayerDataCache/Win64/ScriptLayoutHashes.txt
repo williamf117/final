@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/William Forrest/Documents/New folder/SpaceMountain.exe
+C:/Users/William Forrest/Desktop/New folder/SpaceMountain.exe
 SceneListBegin?
 Assets/Scenes/Menue.unity
 Assets/Scenes/Jupiter.unity
@@ -61,6 +61,8 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 888a5407a9670ccb5e6fb80b5711a388 Assembly-CSharp.dll:.GameManager
 98ad81e9f689a492509f07e75b810aaa Unity.TextMeshPro.dll:TMPro.TMP_InputField
+71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
+71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -95,7 +97,9 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.NewBehaviourScript
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.JustRotate
+9058627aeb587766195f741e2ff28a24 Assembly-CSharp.dll:.Mission3
 bcd0754bf0e37a7785816773a0d424f4 Assembly-CSharp.dll:.Frigate
+bcd0754bf0e37a7785816773a0d424f4 Assembly-CSharp.dll:.PlayerCurser
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8747051d8c53856e2def93af4f2a8b08 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -187,6 +191,7 @@ ee93d096bf272c6b22be609128bcc904 Assembly-CSharp.dll:.Satellite
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 830a61077bb219e2dc3bf432f7c5580b Assembly-CSharp.dll:.CustomPointer
 e38924896b37668386aa557cc269ac42 Assembly-CSharp.dll:.Player
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Store
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 201ae5a417a8609543a5d7ee9fc2ec20 Assembly-CSharp.dll:.ExampleShipControl
@@ -194,6 +199,3 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 9058627aeb587766195f741e2ff28a24 Assembly-CSharp.dll:.Mission4
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EventManager
-9058627aeb587766195f741e2ff28a24 Assembly-CSharp.dll:.Mission3
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Store
-bcd0754bf0e37a7785816773a0d424f4 Assembly-CSharp.dll:.PlayerCurser

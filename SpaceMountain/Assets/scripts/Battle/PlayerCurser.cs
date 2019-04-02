@@ -6,6 +6,7 @@ public class PlayerCurser : PlayerShip
 {
     //list for all turrets 
     List<PlayerControlledTurret> turrets = new List<PlayerControlledTurret>();
+    bool justInrainge = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,21 +32,24 @@ public class PlayerCurser : PlayerShip
         {
             t.Target(target);
         }
-        if (totarget.magnitude < 10 && desto==Vector3.zero)
+        if (totarget.magnitude < 10 )
         {
-
             
-            //find the rotation needed to face the object 
-            float angletoTarget = Mathf.Tan(totarget.y / totarget.x);
-            angletoTarget = Mathf.Rad2Deg*angletoTarget;
-            float desieredangle = angletoTarget + 90;
-
-
+            speed = 0;
+            float desieredangle=90;
+            if (!justInrainge)
+            {
+                //find the rotation needed to face the object 
+                float angletoTarget = Mathf.Tan(totarget.y / totarget.x);
+                angletoTarget = Mathf.Rad2Deg * angletoTarget;
+                 desieredangle = angletoTarget + 90;
+                justInrainge = true;
+            }
             //rotate twards that 
             Vector3 to = new Vector3(0, 0, desieredangle);
-            if (Vector3.Distance(transform.eulerAngles, to) > 0.01f)
+            if (Vector3.Distance(transform.eulerAngles, to) > 0.1f)
             {
-                transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, Time.deltaTime);
+                transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, rotationspeed* Time.deltaTime);
             }
             else
             {
@@ -80,6 +84,7 @@ public class PlayerCurser : PlayerShip
         else
         {
             speed = .03f;
+            justInrainge = false;
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -1), speed);
         }
     }
