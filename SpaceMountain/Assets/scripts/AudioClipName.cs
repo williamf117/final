@@ -7,5 +7,8 @@ using UnityEngine;
 /// </summary>
 public enum AudioClipName
 {
-  
+  SpaceLoop,
+  BattleLoop,
+  WeaponsFire,
+  explosion
 }

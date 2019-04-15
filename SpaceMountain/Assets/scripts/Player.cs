@@ -9,6 +9,11 @@ public class Player : MonoBehaviour {
     List<GameObject> AllShips = new List<GameObject>();
     List<GameObject> playerFleet = new List<GameObject>();
    
+    public GameObject target
+    {
+        get { return Desto; }
+    }
+
     public int Fule
     {
         get { return 100; }

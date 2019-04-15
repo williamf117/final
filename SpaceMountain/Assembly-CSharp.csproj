@@ -105,6 +105,7 @@
     <None Include="Assets\Resources\2D Space Kit\Scripts\WARNING.txt" />
     <None Include="Assets\Resources\2D Space Kit\Backgrounds\Background Tip.txt" />
     <None Include="Assets\Resources\2D Space Kit\Ships and Stations\Rendering Tip.txt" />
+    <None Include="Assets\Universal Sound FX\version_history.txt" />
     <None Include="Assets\Resources\2D Space Kit\Background Elements\Stars\Recolor Us!.txt" />
     <None Include="Assets\Resources\2D Space Kit\Backgrounds\Fantasy Purple 2048\Note.txt" />
     <None Include="Assets\Resources\2D Space Kit\Background Elements\Planets\Planet Masks\Note.txt" />

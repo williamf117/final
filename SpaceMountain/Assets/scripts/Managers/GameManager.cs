@@ -75,6 +75,9 @@ public class GameManager : MonoBehaviour
         EventManager.AddNewenterPlanetListener(changesene);
         EventManager.AddNewEnterBattleListener(startBattle);
         EventManager.AddEndbattlelistener(endbattle);
+
+        AudioManager.Initialize(gameObject.GetComponent<AudioSource>());
+        AudioManager.Instance.Play(AudioClipName.SpaceLoop);
     }
 
     // Update is called once per frame
@@ -123,15 +126,24 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <param name="name"></param>
     public void changesene(string name) {
-        try
+
+        if (name != "mercury" || name != "venus")
         {
-            //SceneManager.LoadScene("testBattle");
-            SceneManager.LoadScene(name);
-          
-        }
-        catch
-        {
-            Debug.Log("no scene");
+            try
+            {
+                if(name=="testBattle")
+                {
+                    AudioManager.Instance.StopSource(AudioClipName.SpaceLoop);
+                    AudioManager.Instance.Play(AudioClipName.BattleLoop);
+                }
+                //SceneManager.LoadScene("testBattle");
+                SceneManager.LoadScene(name);
+
+            }
+            catch
+            {
+                Debug.Log("no scene");
+            }
         }
     }
     public void quit()

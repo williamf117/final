@@ -52,7 +52,11 @@ public class Satellite : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            enterplanet.Invoke(this.gameObject.name);
+            //check if this is the planet you want to go to
+            if (collision.gameObject.GetComponent<Player>().target == gameObject)
+            {
+                enterplanet.Invoke(this.gameObject.name);
+            }
         }
     }
     private void FixedUpdate()

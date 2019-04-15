@@ -42,12 +42,16 @@ public class HUD : MonoBehaviour {
             GameObject.Destroy(child.gameObject);//destroy the buttons 
         }
     }
+    /// <summary>
+    /// a function that will create the menue based on how many satelights are present 
+    /// </summary>
     public void CreateMenue()
     {
         var satelights=GameObject.FindGameObjectsWithTag("Satellite");
         Vector2 startpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log(startpos);
         int i = 1;
+        
         foreach(GameObject go in satelights)
         {
             GameObject goButton = (GameObject)Instantiate(BlankButton);

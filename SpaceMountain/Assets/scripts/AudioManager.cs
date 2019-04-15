@@ -68,8 +68,13 @@ public class AudioManager
         // loads in sounds from Resources
         initialized = true;
         audioSource = source;
+        audioClips.Add(AudioClipName.SpaceLoop, (AudioClip)Resources.Load("sounds/Space Station SLOW LOOP"));
 
-       
+        audioClips.Add(AudioClipName.BattleLoop, (AudioClip)Resources.Load("sounds/Long Range Combat LOOP"));
+        Debug.Log(audioClips[AudioClipName.BattleLoop]);
+
+
+
     }
 
     /// <summary>
@@ -83,6 +88,7 @@ public class AudioManager
             audioSource.PlayOneShot(audioClips[name]);
         }
     }
+   
 
     /// <summary>
     /// Overlaps audio clip with given name

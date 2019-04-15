@@ -15,8 +15,13 @@ public class BattleControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //stop the map music and play the battle music 
+        AudioManager.Instance.StopSource(AudioClipName.SpaceLoop);
+        AudioManager.Instance.Play(AudioClipName.BattleLoop);
+        //find the spawn points 
         Vector3 playerSpawn = GameObject.Find("player spawn").transform.position;
         Vector3 eanamySpawn = GameObject.Find("eanamy spawn").transform.position;
+        //spawin the player fleet using a deep copy 
         foreach (GameObject go in GameManager.instance.playerfleet) {
             if (go.name == "Frigate 1") {
                 Fleet.Add((GameObject)Resources.Load("prefabs/Frigate 1"));
@@ -34,6 +39,7 @@ public class BattleControler : MonoBehaviour
                 Fleet.Add((GameObject)Resources.Load("prefabs/PlayerCruiser"));
             }
         }
+        //spawn the eanamy fleet 
         EanamyFleet = GameManager.instance.ships;
         float offset = 0;
 
@@ -76,6 +82,9 @@ public class BattleControler : MonoBehaviour
         }
         if (EanamyFleet.ToArray().Length == 0)
         {
+            //end the battle music and go over to the map music 
+            AudioManager.Instance.StopSource(AudioClipName.BattleLoop);
+            AudioManager.Instance.Play(AudioClipName.SpaceLoop);
             // GameManager.
             fin.Invoke();
         }
