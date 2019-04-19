@@ -49,7 +49,7 @@ public class PlayerCurser : PlayerShip
             Vector3 to = new Vector3(0, 0, desieredangle);
             if (Vector3.Distance(transform.eulerAngles, to) > 0.1f)
             {
-                transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, rotationspeed* Time.deltaTime);
+                transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, .25f* Time.deltaTime);
             }
             else
             {

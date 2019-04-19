@@ -29,11 +29,10 @@ public class PlayerShip : Ship
         set { speed = value; }
     }
 
+
+
    
 
-
-
- 
 
     // Update is called once per frame
     void Update()

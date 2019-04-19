@@ -7,10 +7,21 @@ using UnityEngine.SceneManagement;
 public class BattleControler : MonoBehaviour
 {
     List<GameObject> Fleet = new List<GameObject>();
-    List<GameObject> EanamyFleet  = new List<GameObject>();
+    List<GameObject> EanamyFleet = new List<GameObject>();
     PlayerShip selected;
     EndBattle fin;
 
+    public PlayerShip SetActive
+    {
+        get { return selected; }
+        set { selected = value; }
+    }
+
+
+
+    public List<GameObject> Playerships{
+        get { return Fleet; }
+        }
    
     // Start is called before the first frame update
     void Start()
@@ -68,7 +79,7 @@ public class BattleControler : MonoBehaviour
         }
         fin = new EndBattle();
         EventManager.AddleveBattleinvoker(this);
-        
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<battleUI>().initalize();
        
     }
 

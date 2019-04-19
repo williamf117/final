@@ -12,6 +12,7 @@ public class Ship : MonoBehaviour {
     public float health = 100;
     protected float rotationspeed = 3;
    protected  bool mouseon = false;
+   protected float maxHealth=100;
    
     //[SerializeField]
     //Sprite Hilight;
@@ -22,9 +23,18 @@ public class Ship : MonoBehaviour {
         get { return mouseon; }
     }
 
+    public float MaxHealth {
+
+        get { return maxHealth; }
+    }
+    public float Health
+    {
+        get { return health; }
+    }
 
     // Use this for initialization
     void Awake () {
+        maxHealth = health;
         noHilight = GetComponentInChildren<SpriteRenderer>().sprite;
         //Debug.Log(noHilight.name);
         rb2d = GetComponent<Rigidbody2D>();
