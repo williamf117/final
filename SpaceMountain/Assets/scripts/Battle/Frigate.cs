@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Frigate : PlayerShip
 {
+    override protected int Index
+    {
+
+        get { return 1; }
+
+
+    }
     float rainge = 10;
     private void Start()
     {
         Speed = .05f;
+       
     }
 
     

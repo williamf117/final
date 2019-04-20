@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
     Satellite locationLocal, locationGlobal;
     int misioncount = 1;
 
+
+    public int MissionCount
+    {
+        get { return misioncount; }
+    }
+
     //public acssesor for player fleet
     public List<GameObject> PlayerFleet{
         get { return playerfleet; }
@@ -45,11 +51,17 @@ public class GameManager : MonoBehaviour
         get { return playerfunds; }
         set { playerfunds = value; }
     }
-    
+    float playerFuel = 100;
+    public float Fuel
+    {
+        get { return playerFuel; }
+        set { playerFuel = value; }
+    }
 
     //Awake is always called before any Start functions
     void Awake()
     {
+        
         //Check if instance already exists
         if (instance == null)
 
@@ -83,6 +95,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+       
         if (currMission!=null && currMission.completed)
         {
             Funds += currMission.reward;
@@ -118,7 +132,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.M))
         {
-            SceneManager.LoadScene("Menue");
+            SaveGame.save();
         }
     }
     /// <summary>

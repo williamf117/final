@@ -14,6 +14,20 @@ public class PlayerShip : Ship
    protected float speed =.05f;
     protected float maxSpeed;
 
+    //an index to represent the type of ship for the save functions 
+    protected virtual int Index {
+        get { return 0; }
+    }
+
+
+    /// <summary>
+    /// a way for the save game functrion to get the index of the ship
+    /// </summary>
+    public int GetIndex {
+        get { return Index; }
+    }
+
+
     private void Awake()
     {
         maxSpeed = speed;

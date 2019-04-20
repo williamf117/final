@@ -102,6 +102,7 @@
     <Compile Include="Assets\scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\Satellite.cs" />
+    <Compile Include="Assets\scripts\SaveGame.cs" />
     <Compile Include="Assets\scripts\scenejumper.cs" />
     <None Include="Assets\Resources\2D Space Kit\Scripts\WARNING.txt" />
     <None Include="Assets\Resources\2D Space Kit\Backgrounds\Background Tip.txt" />

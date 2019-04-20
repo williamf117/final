@@ -1,0 +1,11 @@
+sole
+Player ships 
+1
+1
+0
+0
+2
+mission number 
+2
+funds and fuel
+500 100

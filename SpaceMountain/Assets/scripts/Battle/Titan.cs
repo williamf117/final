@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Titan : PlayerShip
 {
+    override protected int Index
+    {
+
+        get { return 3; }
+
+
+    }
     List<PlayerControlledTurret> turrets = new List<PlayerControlledTurret>();
     // Start is called before the first frame update
     void Start()
@@ -17,6 +24,7 @@ public class Titan : PlayerShip
         }
         //set variables 
         speed = .01f;
+       
         rotationspeed = .5f;
         health = 500;
     }

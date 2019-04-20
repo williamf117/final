@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class PlayerCurser : PlayerShip
 {
+     override protected int Index
+    {
+
+        get { return 2; }
+
+
+    }
+
+
     //list for all turrets 
     List<PlayerControlledTurret> turrets = new List<PlayerControlledTurret>();
     bool justInrainge = false;
@@ -11,6 +20,7 @@ public class PlayerCurser : PlayerShip
     void Start()
     {
         speed = .03f;
+        
         rotationspeed = 2.5f;
         health = 200;
         //populate the list of turrets 
