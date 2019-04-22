@@ -38,6 +38,7 @@ public class InGameMenue : MonoBehaviour
 
     public void navigation()
     {
+        AudioManager.Instance.Play(AudioClipName.Button);
         navMenue.CreateMenue();
     }
      public void Mission()
@@ -49,15 +50,18 @@ public class InGameMenue : MonoBehaviour
     }
     public void Fleet()
     {
-       Instantiate( Resources.Load("prefabs/store"));
+        AudioManager.Instance.Play(AudioClipName.Button);
+        Instantiate( Resources.Load("prefabs/store"));
     }
     public void ToSole()
     {
+        AudioManager.Instance.Play(AudioClipName.Button);
         SceneManager.LoadScene("sole");
     }
     public void MissionBreafing(string descriptionString)
     {
-         mb = Instantiate(missionBreefing);
+        AudioManager.Instance.Play(AudioClipName.Button);
+        mb = Instantiate(missionBreefing);
         mb.transform.SetParent(hud.transform, false);
         Text description = mb.transform.Find("description").GetComponent<Text>();
         description.text = descriptionString;

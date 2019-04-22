@@ -19,8 +19,8 @@ public class PlayerCurser : PlayerShip
     // Start is called before the first frame update
     void Start()
     {
-        speed = .03f;
-        
+        speed = 4;
+      //  maxSpeed = speed;
         rotationspeed = 2.5f;
         health = 200;
         //populate the list of turrets 
@@ -45,7 +45,7 @@ public class PlayerCurser : PlayerShip
         if (totarget.magnitude < 10 )
         {
             
-            speed = 0;
+  
             float desieredangle=90;
             if (!justInrainge)
             {

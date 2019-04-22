@@ -9,10 +9,12 @@ public enum missionType
     kill,
     fetch
 }
+
 public class Mission1 : MissionBase
 {
     [SerializeField]
     GameObject fleet;
+    bool init = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +23,7 @@ public class Mission1 : MissionBase
         //DontDestroyOnLoad(this);
         desto = GameObject.Find("Io");
         prefabFleet = (GameObject) Resources.Load("prefabs/Prefabfleet");
-         fleet = Instantiate(prefabFleet);
-        fleet.GetComponent<Fleet>().Target = desto;
-        fleet.transform.position = GameObject.Find("Callisto").transform.position;
-        fleet.GetComponent<Fleet>().MakeFleet(3);
+        
         drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
         EventManager.AddMissionCompleatInvokers(this);
        
@@ -34,9 +33,18 @@ public class Mission1 : MissionBase
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().name!="testBattle")
+        //check to see if we are in the right scene and make a fleet 
+        if (SceneManager.GetActiveScene().name == "Jupiter" && init==false)
+        {
+            init = true;
+            fleet = Instantiate(prefabFleet);
+            fleet.GetComponent<Fleet>().Target = desto;
+            fleet.transform.position = GameObject.Find("Callisto").transform.position;
+            fleet.GetComponent<Fleet>().MakeFleet(3);
+        }
+       if (SceneManager.GetActiveScene().name!="testBattle")
              drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
-        if (fleet==null && SceneManager.GetActiveScene().name == "Jupiter")
+        if (fleet==null && SceneManager.GetActiveScene().name == "Jupiter"&&init==true)
         {
             completed = true;
             missioncomplete.Invoke("Mission 1 Complete");

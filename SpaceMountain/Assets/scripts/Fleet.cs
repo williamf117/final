@@ -38,7 +38,7 @@ public class Fleet : MonoBehaviour
         fleet.Clear();
         for(int i = 0; i<danger; i++)
         {
-            fleet.Add(ships[0]);
+            fleet.Add(ships[Random.Range(0,ships.Count)]);
         }
     }
 

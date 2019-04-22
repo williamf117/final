@@ -1778,7 +1778,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 576301018182602463}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1694818122
+--- !u!82 &1694818119
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1788,11 +1788,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7086c7e852eca4886958683cb11e9a7e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1874,14 +1874,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &1694818123
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694818118}
-  m_Enabled: 1
 --- !u!1 &1711545648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,11 +2446,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 576301018193890944, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: m_TagString
-      value: GameController
-      objectReference: {fileID: 0}
     - target: {fileID: 576301018193891005, guid: 7288959017aaa6a448e1403724310dff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2514,40 +2501,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891007, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: playerfleet.Array.size
-      value: 5
+    - target: {fileID: 1694818122, guid: 7288959017aaa6a448e1403724310dff, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 576301018193891007, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: playerfleet.Array.data[0]
-      value: 
-      objectReference: {fileID: 3435802743904682655, guid: d66757bac2b202443bba3cbb0c055392,
-        type: 3}
-    - target: {fileID: 576301018193891007, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: playerfleet.Array.data[1]
-      value: 
-      objectReference: {fileID: 3435802743904682655, guid: d66757bac2b202443bba3cbb0c055392,
-        type: 3}
-    - target: {fileID: 576301018193891007, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: playerfleet.Array.data[2]
-      value: 
-      objectReference: {fileID: 1075192588, guid: c8929b36daf2fb44b968d5c4ef1f30e6,
-        type: 3}
-    - target: {fileID: 576301018193891007, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: playerfleet.Array.data[3]
-      value: 
-      objectReference: {fileID: 1075192588, guid: c8929b36daf2fb44b968d5c4ef1f30e6,
-        type: 3}
-    - target: {fileID: 576301018193891007, guid: 7288959017aaa6a448e1403724310dff,
-        type: 3}
-      propertyPath: playerfleet.Array.data[4]
-      value: 
-      objectReference: {fileID: 6316701117178023230, guid: 2ca82a09144964a439f1434f86cbff40,
-        type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 1694818122, guid: 7288959017aaa6a448e1403724310dff, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694818122, guid: 7288959017aaa6a448e1403724310dff, type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1694818122, guid: 7288959017aaa6a448e1403724310dff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7288959017aaa6a448e1403724310dff, type: 3}

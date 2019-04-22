@@ -23,10 +23,11 @@ public class Titan : PlayerShip
             }
         }
         //set variables 
-        speed = .01f;
+        speed = 2;
        
         rotationspeed = .5f;
         health = 500;
+       // maxSpeed = speed;
     }
     public override void FireOnTarget()
     {

@@ -33,7 +33,7 @@ public class Ship : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Awake () {
+   protected void Awake () {
         maxHealth = health;
         noHilight = GetComponentInChildren<SpriteRenderer>().sprite;
         //Debug.Log(noHilight.name);
@@ -47,6 +47,11 @@ public class Ship : MonoBehaviour {
        //  Instantiate(go);
         go.transform.parent = gameObject.transform;
         go.layer = 9;
+
+        if (GetComponent<Rigidbody2D>() == null)
+        {
+            gameObject.AddComponent<Rigidbody2D>();
+        }
 
     }
 	

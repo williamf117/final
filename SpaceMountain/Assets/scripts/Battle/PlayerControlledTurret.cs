@@ -27,6 +27,7 @@ public class PlayerControlledTurret : MonoBehaviour {
 	}
     public void Fire()
     {
+        AudioManager.Instance.Play(AudioClipName.WeaponsFire);
         GameObject bullet = (GameObject)Instantiate(weapon_prefab, barrel_hardpoints[barrel_index].transform.position, transform.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.up * shot_speed);
         bullet.GetComponent<Projectile>().firing_ship = transform.parent.gameObject;

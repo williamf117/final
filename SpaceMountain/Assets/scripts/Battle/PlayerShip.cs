@@ -11,8 +11,8 @@ public class PlayerShip : Ship
    protected float cooldown = 2;
     [SerializeField]
    protected GameObject bullet;
-   protected float speed =.05f;
-    protected float maxSpeed;
+   protected float speed =5;
+    
 
     //an index to represent the type of ship for the save functions 
     protected virtual int Index {
@@ -28,10 +28,7 @@ public class PlayerShip : Ship
     }
 
 
-    private void Awake()
-    {
-        maxSpeed = speed;
-    }
+
 
     public float Price
     {
@@ -51,25 +48,21 @@ public class PlayerShip : Ship
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(speed);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
         Vector3 vectorToTarget = desto - transform.position;
         if (desto != Vector3.zero)
         {
             //turn to face target
-            speed = maxSpeed;
-            if( vectorToTarget.magnitude<5)
-            {
-                desto = Vector3.zero;
-                
-            }
-        
+           // speed = maxSpeed;
+            rb.velocity = (desto - transform.position).normalized *speed;
+
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationspeed);
 
-            //move to postion 
-            transform.position = Vector3.MoveTowards(transform.position,new Vector3(desto.x,desto.y,-1), speed);
-            
-            
+
+
         }
 
         if (target != null)

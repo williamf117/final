@@ -69,8 +69,11 @@ public class AudioManager
         initialized = true;
         audioSource = source;
         audioClips.Add(AudioClipName.SpaceLoop, (AudioClip)Resources.Load("sounds/Space Station SLOW LOOP"));
-
+        audioClips.Add(AudioClipName.Button, (AudioClip)Resources.Load("sounds/Button"));
         audioClips.Add(AudioClipName.BattleLoop, (AudioClip)Resources.Load("sounds/Long Range Combat LOOP"));
+        audioClips.Add(AudioClipName.ButtonFail, (AudioClip)Resources.Load("sounds/ButtonFail"));
+        audioClips.Add(AudioClipName.WeaponsFire, (AudioClip)Resources.Load("sounds/blaster"));
+        audioClips.Add(AudioClipName.explosion, (AudioClip)Resources.Load("sounds/Explosion"));
         Debug.Log(audioClips[AudioClipName.BattleLoop]);
 
 

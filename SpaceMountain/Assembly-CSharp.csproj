@@ -75,7 +75,9 @@
     <Compile Include="Assets\scripts\AudioManager.cs" />
     <Compile Include="Assets\scripts\Battle\BattleControler.cs" />
     <Compile Include="Assets\scripts\Battle\bullet.cs" />
+    <Compile Include="Assets\scripts\Battle\ButtonSounds.cs" />
     <Compile Include="Assets\scripts\Battle\eanamy\EanamyBase.cs" />
+    <Compile Include="Assets\scripts\Battle\eanamy\EanamyCruser.cs" />
     <Compile Include="Assets\scripts\Battle\Frigate.cs" />
     <Compile Include="Assets\scripts\Battle\PlayerControlledTurret.cs" />
     <Compile Include="Assets\scripts\Battle\PlayerCurser.cs" />

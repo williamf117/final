@@ -9,6 +9,7 @@ public class MissionBreafing : MonoBehaviour
     /// </summary>
     public void close()
     {
+        AudioManager.Instance.Play(AudioClipName.Button);
         foreach (Transform child in transform)
         {
             GameObject.Destroy(child.gameObject);

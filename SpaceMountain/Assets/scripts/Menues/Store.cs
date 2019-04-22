@@ -9,18 +9,25 @@ public class Store : MonoBehaviour
 
     public void BuyShip(GameObject ship)
     {
+
        float price = ship.GetComponent<PlayerShip>().Price;
         if (price <= GameManager.instance.Funds)
         {
+            AudioManager.Instance.Play(AudioClipName.Button);
             GameManager.instance.playerfleet.Add(ship);
             GameManager.instance.Funds -= price;
             Close();
+        }
+        else
+        {
+            AudioManager.Instance.Play(AudioClipName.ButtonFail);
         }
     }
 
     public void Close()
     {
-       foreach(Transform child in transform)
+        AudioManager.Instance.Play(AudioClipName.Button);
+        foreach (Transform child in transform)
         {
             Destroy(transform.gameObject);
         }

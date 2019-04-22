@@ -36,6 +36,7 @@ public class HUD : MonoBehaviour {
 	}
     public void TravelTo(GameObject s)
     {
+        AudioManager.Instance.Play(AudioClipName.Button);
         player.setDesto(s);//set the players desto
         foreach (Transform child in hud.transform)
         {

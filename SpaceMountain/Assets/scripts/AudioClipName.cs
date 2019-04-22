@@ -10,5 +10,7 @@ public enum AudioClipName
   SpaceLoop,
   BattleLoop,
   WeaponsFire,
-  explosion
+  Button,
+  explosion,
+  ButtonFail
 }

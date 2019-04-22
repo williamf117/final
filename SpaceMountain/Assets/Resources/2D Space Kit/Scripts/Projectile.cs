@@ -32,7 +32,8 @@ public class Projectile : MonoBehaviour {
                     Destroy(col.gameObject);
                 }
             }
-			//Destroy(gameObject);
+            AudioManager.Instance.Play(AudioClipName.explosion);
+			Destroy(gameObject);
 		}
 	}
 	

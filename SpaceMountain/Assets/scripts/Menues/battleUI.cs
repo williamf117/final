@@ -43,18 +43,22 @@ public class battleUI : MonoBehaviour
         { if (playerships[i] == null)
             {
                 playerships.Remove(playerships[i]);
-                Destroy(buttons[i]);
+                GameObject b =buttons[i] ;
+                buttons.Remove(buttons[i]);
+                Destroy(b);
                 return;
             }
             Ship s = playerships[i].GetComponent<Ship>();
             buttons[i].transform.GetChild(1).gameObject.GetComponent<Slider>().value = s.Health / s.MaxHealth;
-            Debug.Log(s.Health / s.MaxHealth);
+           // Debug.Log(s.Health / s.MaxHealth);
            
         }
     }
 
     public void setSelectedShip(GameObject ship)
     {
+
+        AudioManager.Instance.Play(AudioClipName.Button);
         Camera.main.GetComponent<BattleControler>().SetActive=ship.GetComponent<PlayerShip>();
     }
 }

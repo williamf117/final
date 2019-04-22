@@ -5,14 +5,20 @@ using UnityEngine;
 public class EanamyBase : Ship
 {
     [SerializeField]
-    float maxrainge = 15, minrainge = 5, moveSpeed=.5f, cooldown=3;//effective rainge of the gun. 
+    protected float maxrainge = 15, minrainge = 5, moveSpeed=.5f, cooldown=3;//effective rainge of the gun. 
     [SerializeField]
     GameObject bullet;
    
     GameObject[] playerships;
-    GameObject currenttarget; 
-   
-   
+    GameObject currenttarget;
+
+    public enum states {
+        CloseRainge,
+        attack,
+        openRainge
+
+    }
+
 
   
 
@@ -34,6 +40,7 @@ public class EanamyBase : Ship
             if (rainge > minrainge && rainge < maxrainge)
             {
                 inrainge = true;
+                fireOnTarget();
             }
             else if (rainge < minrainge && rainge < maxrainge)
             {
@@ -53,34 +60,40 @@ public class EanamyBase : Ship
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationspeed);
 
             //rotate to face the target if inrainge
-            if (inrainge)
-            {
-                //turn to face target
-                rb2d.velocity = Vector2.zero;
-
-
-                //fire if you can
-                if (!oncooldown)
-                {
-                    GameObject round = Instantiate(bullet, transform.position, transform.rotation);
-                    oncooldown = true;
-                    Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
-
-
-                }
-
-                if (oncooldown)
-                {
-                    cooldown -= Time.deltaTime;
-                    if (cooldown < 0)
-                    {
-                        oncooldown = false;
-                        cooldown = 3;
-                    }
-                }
-            }
+           
         }
     }
+
+ protected  virtual void fireOnTarget()
+    {
+      
+            //turn to face target
+            rb2d.velocity = Vector2.zero;
+            
+
+            //fire if you can
+            if (!oncooldown)
+            {
+                GameObject round = Instantiate(bullet, transform.position, transform.rotation);
+                oncooldown = true;
+                Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
+
+
+            }
+
+            if (oncooldown)
+            {
+                cooldown -= Time.deltaTime;
+                if (cooldown < 0)
+                {
+                    oncooldown = false;
+                    cooldown = 3;
+                }
+            }
+        
+    }
+
+
 
     GameObject FindTarget()
     {
@@ -113,7 +126,8 @@ public class EanamyBase : Ship
     /// </summary>
     void OpenRainge()
     {
-
+        Vector2 vectorToTarget = currenttarget.transform.position - transform.position;
+        rb2d.velocity = -vectorToTarget.normalized * moveSpeed;
     }
 
     //void OnMouseOver()

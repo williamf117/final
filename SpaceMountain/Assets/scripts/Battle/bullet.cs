@@ -12,6 +12,7 @@ public class bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.Play(AudioClipName.WeaponsFire);
         rb2d = GetComponent<Rigidbody2D>(); //get the rigid body 
         x = Mathf.Cos(Mathf.Deg2Rad * transform.eulerAngles.z) * bulletSpeed; //determine x and y components
         y = Mathf.Sin(Mathf.Deg2Rad * transform.eulerAngles.z) * bulletSpeed;
@@ -33,6 +34,7 @@ public class bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        AudioManager.Instance.Play(AudioClipName.explosion);
         Destroy(gameObject);
     }
 }

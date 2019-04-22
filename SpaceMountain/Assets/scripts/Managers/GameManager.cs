@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         EventManager.AddEndbattlelistener(endbattle);
 
         AudioManager.Initialize(gameObject.GetComponent<AudioSource>());
-        AudioManager.Instance.Play(AudioClipName.SpaceLoop);
+        
     }
 
     // Update is called once per frame

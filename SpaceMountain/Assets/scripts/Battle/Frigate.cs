@@ -14,8 +14,8 @@ public class Frigate : PlayerShip
     float rainge = 10;
     private void Start()
     {
-        Speed = .05f;
-       
+        Speed = 4;
+        //maxSpeed = speed;
     }
 
     
@@ -24,7 +24,7 @@ public class Frigate : PlayerShip
         //calculate distence to target 
         Vector3 totarget = target.transform.position - transform.position;
 
-        if (totarget.magnitude < 10)
+        if (totarget.magnitude < rainge)
         {
 
             transform.RotateAround(target.transform.position, Vector3.forward, 10 * Time.deltaTime);
@@ -55,7 +55,14 @@ public class Frigate : PlayerShip
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -1), speed);
+
+            Vector3 vectorToTarget = target.transform.position - transform.position;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            rb.velocity = (desto - transform.position).normalized * speed;
+
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationspeed);
         }
       
     }
