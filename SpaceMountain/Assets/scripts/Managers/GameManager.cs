@@ -81,9 +81,7 @@ public class GameManager : MonoBehaviour
         // Start is called before the first frame update
         void Start()
     {
-      
-
-        //eventmanager = new EventManager();
+        //add all the events needed to the list 
         EventManager.AddNewenterPlanetListener(changesene);
         EventManager.AddNewEnterBattleListener(startBattle);
         EventManager.AddEndbattlelistener(endbattle);
@@ -125,7 +123,7 @@ public class GameManager : MonoBehaviour
                     misioncount++;
                     break;
                 case 5:
-                    currMission = null;
+                    currMission = CurrMission=gameObject.AddComponent<Misson5>();
                     break;
             }
         }

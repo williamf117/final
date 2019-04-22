@@ -101,6 +101,7 @@
     <Compile Include="Assets\scripts\missions\Mission3.cs" />
     <Compile Include="Assets\scripts\missions\Mission4.cs" />
     <Compile Include="Assets\scripts\missions\MissionBase.cs" />
+    <Compile Include="Assets\scripts\missions\Misson5.cs" />
     <Compile Include="Assets\scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\Satellite.cs" />

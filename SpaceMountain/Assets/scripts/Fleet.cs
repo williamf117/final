@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Sprites;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 public class Fleet : MonoBehaviour
 {
     GameObject Desto=null;
     GameObject go;
     [SerializeField]
-    List<GameObject> ships = new List<GameObject>();
+    List<GameObject> ships = new List<GameObject>();//all AI controable ships .
 
     List<GameObject> fleet = new List<GameObject>();
     BattleStartEvent bs;
@@ -31,6 +32,10 @@ public class Fleet : MonoBehaviour
         //fleet.Add(ships[0]);
         //fleet.Add(ships[0]);
         //fleet.Add(ships[0]);
+        if (SceneManager.GetActiveScene().name == "sole")
+        {
+            transform.localScale =new Vector3( .1f,.1f,1);
+        }
        
     }
     public void MakeFleet(int danger)
@@ -67,7 +72,10 @@ public class Fleet : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// start the battles if you collide with the player 
+    /// </summary>
+    /// <param name="collision"></param>
      void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("coll");
@@ -86,4 +94,12 @@ public class Fleet : MonoBehaviour
         bs.AddListener(listener); 
     }
    
+    /// <summary>
+    /// add a ship to a fleet for more speshulised ships like carriers or titans 
+    /// </summary>
+    /// <param name="ship"></param>
+    public void AddShip(GameObject ship)
+    {
+        fleet.Add(ship);
+    }
 }

@@ -89,7 +89,7 @@ public class BattleControler : MonoBehaviour
 
         if (Fleet.ToArray().Length == 0)
         {
-          //  SceneManager.LoadScene("Menue");
+            SceneManager.LoadScene("Menue");
         }
         if (EanamyFleet.ToArray().Length == 0)
         {
@@ -120,7 +120,7 @@ public class BattleControler : MonoBehaviour
         //player controles 
         if (Input.GetMouseButtonDown(0))
         {
-          
+            //check to see if we are clicking on a ship
             foreach (GameObject ship in Fleet)
             {
                 if (ship.GetComponent<PlayerShip>().MouseOn)
@@ -136,22 +136,21 @@ public class BattleControler : MonoBehaviour
             bool onEanamy = false;
             foreach (GameObject go in EanamyFleet) {
                 onEanamy = false;
-                if (go.GetComponent<EanamyBase>().MouseOn)
-                {
-                    onEanamy = true;
-                }
-                if (onEanamy)
+                //check to see if we are clicking on a ship 
+                
+                if ((go.GetComponent<EanamyBase>().MouseOn))
                   {
                     selected.GetComponent<PlayerShip>().setTarget(go);
-                    selected.GetComponent<PlayerShip>().MoveToPosition(Vector3.zero);
+                  //  selected.GetComponent<PlayerShip>().MoveToPosition(Vector3.zero);
                     Debug.Log("on target");
+                    onEanamy = true;
                   }
             }
 
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (selected != null && !onEanamy)
             {
-                selected.GetComponent<PlayerShip>().setTarget(null);
+                //selected.GetComponent<PlayerShip>().setTarget(null);
                 selected.GetComponent<PlayerShip>().MoveToPosition(mouse);
             }
             
