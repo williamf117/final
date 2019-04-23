@@ -47,7 +47,7 @@ public class Mission1 : MissionBase
         if (fleet==null && SceneManager.GetActiveScene().name == "Jupiter"&&init==true)
         {
             completed = true;
-            missioncomplete.Invoke("Mission 1 Complete");
+            missioncomplete.Invoke("Mission 1 complete");
             
         }
     }

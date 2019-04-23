@@ -23,16 +23,16 @@ public class PlayerShip : Ship
     /// <summary>
     /// a way for the save game functrion to get the index of the ship
     /// </summary>
-    public int GetIndex {
-        get { return Index; }
+    public virtual int GetIndex {
+        get { return 0; }
     }
 
 
 
 
-    public float Price
+    public virtual float Price
     {
-        get { return price; }
+        get { return 1000; }
     }
 
     public float Speed

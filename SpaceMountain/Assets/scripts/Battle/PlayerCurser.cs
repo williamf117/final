@@ -11,7 +11,10 @@ public class PlayerCurser : PlayerShip
 
 
     }
-
+    public override float Price
+    {
+        get { return 3000; }
+    }
 
     //list for all turrets 
     List<PlayerControlledTurret> turrets = new List<PlayerControlledTurret>();
@@ -20,6 +23,7 @@ public class PlayerCurser : PlayerShip
     void Start()
     {
         speed = 4;
+        price = 3000;
       //  maxSpeed = speed;
         rotationspeed = 2.5f;
         health = 200;
@@ -44,8 +48,8 @@ public class PlayerCurser : PlayerShip
         }
         if (totarget.magnitude < 10 )
         {
-            
-  
+
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             float desieredangle=90;
             if (!justInrainge)
             {
@@ -93,9 +97,9 @@ public class PlayerCurser : PlayerShip
         }
         else
         {
-            speed = .03f;
+            speed = 4;
             justInrainge = false;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -1), speed);
+            GetComponent<Rigidbody2D>().velocity = totarget.normalized * speed;
         }
     }
 }

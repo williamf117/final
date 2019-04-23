@@ -97,6 +97,7 @@ MonoBehaviour:
   ships:
   - {fileID: 5319607800489630916, guid: a9759d3c17de08f4093c3e55eee75945, type: 3}
   - {fileID: 7849440434788411812, guid: 7e9f4db9fd0badb49998e1b1966f181f, type: 3}
+  - {fileID: 1965230362089399532, guid: 331355ca70c2e1446801f1ed8297e704, type: 3}
   playerfleet:
   - {fileID: 3435802743904682655, guid: d66757bac2b202443bba3cbb0c055392, type: 3}
   - {fileID: 3435802743904682655, guid: d66757bac2b202443bba3cbb0c055392, type: 3}

@@ -24,7 +24,15 @@ public class GameManager : MonoBehaviour
     Satellite locationLocal, locationGlobal;
     int misioncount = 1;
 
+    string TargetBattle = "testBattle";
 
+    public string BattleSceneName
+    {
+        get { return TargetBattle; }
+        set { TargetBattle = value; }
+    }
+
+    //a way to keep track of missions 
     public int MissionCount
     {
         get { return misioncount; }
@@ -52,11 +60,7 @@ public class GameManager : MonoBehaviour
         set { playerfunds = value; }
     }
     float playerFuel = 100;
-    public float Fuel
-    {
-        get { return playerFuel; }
-        set { playerFuel = value; }
-    }
+    
 
     //Awake is always called before any Start functions
     void Awake()
@@ -101,9 +105,11 @@ public class GameManager : MonoBehaviour
             Destroy(currMission);
         }
 
-
+        if (SceneManager.GetActiveScene().name == "Menue") {
+            Destroy(currMission);
+        }
         //get the next mission loded
-        if (currMission == null) {
+        if (currMission == null && SceneManager.GetActiveScene().name != "Menue") {
             switch (misioncount)
             {
                 case 1:
@@ -123,14 +129,24 @@ public class GameManager : MonoBehaviour
                     misioncount++;
                     break;
                 case 5:
-                    currMission = CurrMission=gameObject.AddComponent<Misson5>();
+                    currMission =gameObject.AddComponent<Misson5>();
+                    misioncount++;
+                    break;
+                case 6:
+                    currMission= gameObject.AddComponent<Mission6>();
+                    misioncount++;
+                    break;
+                case 7:
+                    currMission = gameObject.AddComponent<Mission7>();
+                    misioncount++;
                     break;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SaveGame.save();
+            Time.timeScale = 0;
+            Instantiate((GameObject)Resources.Load("prefabs/Pause"));
         }
     }
     /// <summary>
@@ -143,7 +159,7 @@ public class GameManager : MonoBehaviour
         {
             try
             {
-                if(name=="testBattle")
+                if(name=="testBattle"||name=="BaseBattle")
                 {
                     AudioManager.Instance.StopSource(AudioClipName.SpaceLoop);
                     AudioManager.Instance.Play(AudioClipName.BattleLoop);
@@ -173,7 +189,7 @@ public class GameManager : MonoBehaviour
         lastscene = SceneManager.GetActiveScene().name;
         
         
-        SceneManager.LoadScene("testBattle");
+        SceneManager.LoadScene(TargetBattle);
         currsate = state.battle;
         Vector2 pos = Vector2.zero;
         foreach(GameObject go in fleet)
@@ -181,10 +197,13 @@ public class GameManager : MonoBehaviour
             Instantiate(go);
         }
     }
+ 
+
+
     /// <summary>
     /// end the battle and go back to the last scean 
     /// </summary>
-   public void endbattle()
+    public void endbattle()
     {
         currsate = state.map;
         SceneManager.LoadScene(lastscene);

@@ -86,16 +86,39 @@ public class BattleControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if you are out of ships go to the menue 
 
         if (Fleet.ToArray().Length == 0)
         {
             SceneManager.LoadScene("Menue");
         }
+        //if the eanamy is out of ships do a deep copy of the array back to the game manager and end battle 
         if (EanamyFleet.ToArray().Length == 0)
         {
             //end the battle music and go over to the map music 
             AudioManager.Instance.StopSource(AudioClipName.BattleLoop);
             AudioManager.Instance.Play(AudioClipName.SpaceLoop);
+            GameManager.instance.playerfleet.Clear();
+            //deep coppy 
+            foreach (GameObject go in Fleet)
+            {
+                if (go.name == "Frigate 1(Clone)")
+                {
+                    GameManager.instance.playerfleet.Add((GameObject)Resources.Load("prefabs/Frigate 1"));
+                }
+                else if (go.name == "playershipBase(Clone)")
+                {
+                    GameManager.instance.playerfleet.Add((GameObject)Resources.Load("prefabs/playershipBase"));
+                }
+                else if (go.name == "Titan(Clone)")
+                {
+                    GameManager.instance.playerfleet.Add((GameObject)Resources.Load("prefabs/Titan"));
+                }
+                else if (go.name == "PlayerCruiser(Clone)")
+                {
+                    GameManager.instance.playerfleet.Add((GameObject)Resources.Load("prefabs/PlayerCruiser"));
+                }
+            }
             // GameManager.
             fin.Invoke();
         }
@@ -130,7 +153,7 @@ public class BattleControler : MonoBehaviour
                 }
             }
         }
-
+        //right click attack or move 
         if (Input.GetMouseButtonDown(1))
         {
             bool onEanamy = false;
@@ -183,8 +206,8 @@ public class BattleControler : MonoBehaviour
         move.z = 0;
         move = move.normalized*.25f;
         gameObject.transform.position = gameObject.transform.position + move;
-        float zoom = Input.GetAxisRaw("Mouse ScrollWheel") * 1;
-        Camera.main.orthographicSize += zoom;
+        float zoom = Input.GetAxisRaw("Mouse ScrollWheel") * 2;
+        Camera.main.orthographicSize -= zoom;
     }
 
     public void addEndBattleListener(UnityAction listener)

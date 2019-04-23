@@ -6,14 +6,16 @@ public class Frigate : PlayerShip
 {
     override protected int Index
     {
-
         get { return 1; }
-
-
+    }
+    public override float Price
+    {
+        get { return 1500; }
     }
     float rainge = 10;
     private void Start()
     {
+       
         Speed = 4;
         //maxSpeed = speed;
     }

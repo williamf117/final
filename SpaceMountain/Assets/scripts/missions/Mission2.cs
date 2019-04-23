@@ -46,7 +46,7 @@ public class Mission2 : MissionBase
             if ((GameObject.Find("player").transform.position - desto.transform.position).magnitude < 3)
             {
                 completed = true;
-                missioncomplete.Invoke("Mission2 Complete");
+                missioncomplete.Invoke("Mission2 complete");
             }
         }
 

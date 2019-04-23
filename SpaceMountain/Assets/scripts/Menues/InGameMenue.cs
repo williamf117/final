@@ -32,7 +32,7 @@ public class InGameMenue : MonoBehaviour
     {
         playerscript = GameObject.FindWithTag("Player").GetComponent<Player>();
         funds.text = "Funds: "+playerscript.Funds.ToString();
-        Fule.text = "Fuel: " + playerscript.Fule.ToString();
+        Fule.text = "Ship Count: " + GameManager.instance.playerfleet.Count;
         currMission = gm.CurrMission;
     }
 

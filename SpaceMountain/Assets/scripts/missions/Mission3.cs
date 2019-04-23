@@ -20,7 +20,7 @@ public class Mission3 : MissionBase
         drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
         if (GameManager.instance.Funds < StartFunds)
         {
-            missioncomplete.Invoke("mission3 compleat");
+            missioncomplete.Invoke("mission3 complete");
             completed = true;
             StartFunds = GameManager.instance.Funds;
         }

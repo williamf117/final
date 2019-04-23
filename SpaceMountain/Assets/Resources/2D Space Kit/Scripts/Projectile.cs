@@ -5,7 +5,8 @@ public class Projectile : MonoBehaviour {
 	public GameObject shoot_effect;
 	public GameObject hit_effect;
 	public GameObject firing_ship;
-	
+    [SerializeField]
+    int damage = 20;
 	// Use this for initialization
 	void Start () {
 		GameObject obj = (GameObject) Instantiate(shoot_effect, transform.position  - new Vector3(0,0,5), Quaternion.identity); //Spawn muzzle flash
@@ -20,13 +21,13 @@ public class Projectile : MonoBehaviour {
 	
 	
 	void OnTriggerEnter2D(Collider2D col) {
-
+        Instantiate(hit_effect, transform.position, Quaternion.identity);
 		//Don't want to collide with the ship that's shooting this thing, nor another projectile.
 		if (col.gameObject != firing_ship && col.gameObject.tag != "bullet") {
-			Instantiate(hit_effect, transform.position, Quaternion.identity);
+			
             if (col.gameObject.GetComponent<Ship>()!=null)
             {
-                col.gameObject.GetComponent<Ship>().health -= 20;
+                col.gameObject.GetComponent<Ship>().health -= damage;
                 if (col.gameObject.GetComponent<Ship>().health <= 0)
                 {
                     Destroy(col.gameObject);

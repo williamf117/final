@@ -11,7 +11,7 @@ public class Fleet : MonoBehaviour
     [SerializeField]
     List<GameObject> ships = new List<GameObject>();//all AI controable ships .
 
-    List<GameObject> fleet = new List<GameObject>();
+   public  List<GameObject> fleet = new List<GameObject>();
     BattleStartEvent bs;
    
     
@@ -43,7 +43,8 @@ public class Fleet : MonoBehaviour
         fleet.Clear();
         for(int i = 0; i<danger; i++)
         {
-            fleet.Add(ships[Random.Range(0,ships.Count)]);
+           
+            fleet.Add(ships[Random.Range(0,ships.Count-1)]);
         }
     }
 

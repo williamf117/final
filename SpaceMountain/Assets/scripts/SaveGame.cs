@@ -18,7 +18,7 @@ public class SaveGame : MonoBehaviour
         save.WriteLine(GameManager.instance.MissionCount);
 
         save.WriteLine("funds and fuel");
-        save.WriteLine(GameManager.instance.Funds + " " + GameManager.instance.Fuel);
+        //save.WriteLine(GameManager.instance.Funds + " " + GameManager.instance.Fuel);
 
 
         save.Close();

@@ -10,7 +10,7 @@ public class EanamyBase : Ship
     GameObject bullet;
    
     GameObject[] playerships;
-    GameObject currenttarget;
+   protected GameObject currenttarget;
 
     public enum states {
         CloseRainge,

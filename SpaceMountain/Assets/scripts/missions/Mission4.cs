@@ -24,7 +24,8 @@ public class Mission4 : MissionBase
         {
 
             completed = true;
-            missioncomplete.Invoke("Mission 4 Complete");
+            
+            missioncomplete.Invoke("Mission 4 complete");
             GameManager.instance.playerfleet.Remove(Titan);
         }
         else if (SceneManager.GetActiveScene().name == "earth"&& !fleetLoaded && !battlefinished)

@@ -11,10 +11,15 @@ public class Titan : PlayerShip
 
 
     }
+    public override float Price
+    {
+        get { return 100000; }
+    }
     List<PlayerControlledTurret> turrets = new List<PlayerControlledTurret>();
     // Start is called before the first frame update
     void Start()
     {
+        
         foreach (Transform child in transform)
         {
             if (child.gameObject.GetComponent<PlayerControlledTurret>() != null)
@@ -67,7 +72,7 @@ public class Titan : PlayerShip
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -1), speed);
+            GetComponent<Rigidbody2D>().velocity = totarget.normalized * speed;
         }
 
     }
