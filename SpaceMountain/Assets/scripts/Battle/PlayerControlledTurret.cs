@@ -8,6 +8,7 @@ public class PlayerControlledTurret : MonoBehaviour {
 	public float turret_rotation_speed = 3f;
 	public float shot_speed;
 	int barrel_index = 0;
+    public float Shot_dammage=20;
 	// Use this for initialization
 	void Start () {
 	
@@ -21,9 +22,6 @@ public class PlayerControlledTurret : MonoBehaviour {
 		Vector3 direction = target.transform.position - transform.position;
 		transform.rotation = Quaternion.Euler (new Vector3(0, 0, Mathf.LerpAngle(transform.rotation.eulerAngles.z, (Mathf.Atan2 (direction.y,direction.x) * Mathf.Rad2Deg) - 90f, turret_rotation_speed * Time.deltaTime)));
 
-
-		
-	
 	}
     public void Fire()
     {
@@ -31,6 +29,7 @@ public class PlayerControlledTurret : MonoBehaviour {
         GameObject bullet = (GameObject)Instantiate(weapon_prefab, barrel_hardpoints[barrel_index].transform.position, transform.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.up * shot_speed);
         bullet.GetComponent<Projectile>().firing_ship = transform.parent.gameObject;
+        bullet.GetComponent<Projectile>().SetDamage(Shot_dammage);
         barrel_index++; //This will cycle sequentially through the barrels in the barrel_hardpoints array
 
         if (barrel_index >= barrel_hardpoints.Length)

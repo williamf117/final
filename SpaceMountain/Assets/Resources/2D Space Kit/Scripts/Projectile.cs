@@ -13,6 +13,14 @@ public class Projectile : MonoBehaviour {
 		obj.transform.parent = firing_ship.transform;
 		Destroy(gameObject, 5f); //Bullet will despawn after 5 seconds
 	}
+    /// <summary>
+    /// allow for changing damage numbers 
+    /// </summary>
+    /// <param name="d"></param>
+    public void SetDamage(float d)
+    {
+        damage = (int)d;
+    }
 	
 	// Update is called once per frame
 	void Update () {

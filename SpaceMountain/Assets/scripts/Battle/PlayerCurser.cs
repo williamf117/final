@@ -15,6 +15,9 @@ public class PlayerCurser : PlayerShip
     {
         get { return 3000; }
     }
+    /// <summary>
+    /// overide max helth for the ui scripts 
+    /// </summary>
     public override float MaxHealth
     {
 

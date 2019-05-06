@@ -5,7 +5,7 @@ using UnityEngine;
 public class EanamyBase : Ship
 {
     [SerializeField]
-    protected float maxrainge = 15, minrainge = 5, moveSpeed=.5f, cooldown=3;//effective rainge of the gun. 
+    protected float maxrainge = 15, minrainge = 5, moveSpeed=.5f, cooldown=1;//effective rainge of the gun. 
     [SerializeField]
     GameObject bullet;
    
@@ -87,7 +87,7 @@ public class EanamyBase : Ship
                 if (cooldown < 0)
                 {
                     oncooldown = false;
-                    cooldown = 3;
+                    cooldown = 1;
                 }
             }
         

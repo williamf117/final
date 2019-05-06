@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Frigate : PlayerShip
 {
+    List<PlayerControlledTurret> turrets = new List<PlayerControlledTurret>();
     //index for save script 
     override protected int Index
     {
@@ -31,6 +32,18 @@ public class Frigate : PlayerShip
     /// </summary>
     private void Start()
     {
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.GetComponent<PlayerControlledTurret>() != null)
+            {
+                turrets.Add(child.gameObject.GetComponent<PlayerControlledTurret>());
+               
+            }
+        }
+        foreach (PlayerControlledTurret t in turrets)
+        {
+            t.Shot_dammage = 15;
+        }
         health = 150;
         maxHealth = health;
         Speed = 4;
@@ -40,6 +53,10 @@ public class Frigate : PlayerShip
     
       public override void FireOnTarget()
     {
+        foreach (PlayerControlledTurret t in turrets)
+        {
+            t.Target(target);
+        }
         //calculate distence to target 
         Vector3 totarget = target.transform.position - transform.position;
 
@@ -51,11 +68,10 @@ public class Frigate : PlayerShip
             // transform.Rotate(new Vector3(0, 0, 90));
             if (!oncooldown)
             {
-                GameObject round = Instantiate(bullet, transform.GetChild(0).position, transform.rotation);
-                Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
-
-                round = Instantiate(bullet, transform.GetChild(1).position,transform.rotation);
-                Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
+                foreach (PlayerControlledTurret t in turrets)
+                {
+                    t.Fire();
+                }
                 oncooldown = true;
                 Vector3 vectorToTarget = target.transform.position - transform.position;
                 float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
@@ -68,12 +84,12 @@ public class Frigate : PlayerShip
                 if (cooldown < 0)
                 {
                     oncooldown = false;
-                    cooldown = 1;
+                    cooldown = 2;
                 }
             }
         }
         else
-        {
+        {//close rainge to target 
 
             Vector3 vectorToTarget = target.transform.position - transform.position;
             Rigidbody2D rb = GetComponent<Rigidbody2D>();

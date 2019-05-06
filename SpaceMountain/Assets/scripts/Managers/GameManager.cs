@@ -107,6 +107,8 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Menue") {
             Destroy(currMission);
+            misioncount = 10;
+           // Destroy(gameObject);
         }
         //get the next mission loded
         if (currMission == null && SceneManager.GetActiveScene().name != "Menue") {

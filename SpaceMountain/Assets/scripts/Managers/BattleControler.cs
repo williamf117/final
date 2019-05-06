@@ -71,10 +71,10 @@ public class BattleControler : MonoBehaviour
             EanamyFleet[i] = Instantiate(EanamyFleet[i]);
             EanamyFleet[i].transform.position = new Vector3(eanamySpawn.x, eanamySpawn.y + offset, 0);
             offset += 5;
-            if (offset > 15)
+            if (offset > 25)
             {
                 offset = 0;
-                playerSpawn.x += 5;
+                playerSpawn.x += 100;
             }
         }
         fin = new EndBattle();

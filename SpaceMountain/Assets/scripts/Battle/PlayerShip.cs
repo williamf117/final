@@ -12,7 +12,9 @@ public class PlayerShip : Ship
     [SerializeField]
    protected GameObject bullet;
    protected float speed =5;
-
+    /// <summary>
+    /// overide max helth for the ui scripts 
+    /// </summary>
     public override float MaxHealth
     {
 
@@ -71,6 +73,7 @@ public class PlayerShip : Ship
 
         if (target != null)
         {
+            transform.GetChild(0).gameObject.GetComponent<PlayerControlledTurret>().Target(target);
 
              vectorToTarget = target.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
@@ -99,9 +102,9 @@ public class PlayerShip : Ship
     {
         if (!oncooldown)
         {
-            GameObject round = Instantiate(bullet, transform.position, transform.rotation);
+            transform.GetChild(0).gameObject.GetComponent<PlayerControlledTurret>().Fire();
             oncooldown = true;
-            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), round.GetComponent<BoxCollider2D>());
+           
 
 
         }
