@@ -8,8 +8,7 @@ public class Mission7 : MissionBase
     // Start is called before the first frame update
     void Start()
     {
-        description = "In order to finish off the pirates we need a staging station in the orbit of Neptune. But be carful the pirates are going to through every thing they have at you. You will have to defend this station while it is coming online.  ";
-        reward = 100000;
+        description = "In order to finish off the pirates we need a staging station in the orbit of Neptune. But be careful the pirates are going to through everything they have at you. You will have to defend this station while it is coming online.";
         EventManager.AddMissionCompleatInvokers(this);
 
     }

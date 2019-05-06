@@ -27,8 +27,8 @@ public class Projectile : MonoBehaviour {
 			
             if (col.gameObject.GetComponent<Ship>()!=null)
             {
-                col.gameObject.GetComponent<Ship>().health -= damage;
-                if (col.gameObject.GetComponent<Ship>().health <= 0)
+                col.gameObject.GetComponent<Ship>().Health -= damage;
+                if (col.gameObject.GetComponent<Ship>().Health <= 0)
                 {
                     Destroy(col.gameObject);
                 }

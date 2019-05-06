@@ -33,7 +33,7 @@ public class battleUI : MonoBehaviour
                 goButton.GetComponent<Button>().onClick.AddListener(delegate { setSelectedShip(go); });
                 pos.x += 85;
                 //set the slider max to eqaqual the ship health 
-                goButton.transform.GetChild(1).gameObject.GetComponent<Slider>().maxValue = go.GetComponent<Ship>().Health;
+                goButton.transform.GetChild(1).gameObject.GetComponent<Slider>().maxValue = go.GetComponent<Ship>().MaxHealth;
             }
             initalised = true;
         }

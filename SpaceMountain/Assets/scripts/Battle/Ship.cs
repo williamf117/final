@@ -9,7 +9,7 @@ public class Ship : MonoBehaviour {
 
     protected bool inrainge = false;
     protected bool oncooldown = false;
-    public float health = 100;
+    protected float health = 100;
     protected float rotationspeed = 3;
    protected  bool mouseon = false;
    protected float maxHealth=100;
@@ -23,13 +23,14 @@ public class Ship : MonoBehaviour {
         get { return mouseon; }
     }
 
-    public float MaxHealth {
+    public virtual float MaxHealth {
 
         get { return maxHealth; }
     }
     public float Health
     {
         get { return health; }
+        set { health = value; }
     }
 
     // Use this for initialization

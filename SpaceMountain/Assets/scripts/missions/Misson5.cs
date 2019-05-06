@@ -11,7 +11,7 @@ public class Misson5 : MissionBase
     // Start is called before the first frame update
     void Start()
     {
-        description = "The pirate lord has placed a massive bounty on your head fleets from across the system are looking for you. You wont survive long with this kind of bounty. If you can destroy one of their carrier groups then they might decide that you are more trouble than your worth. there might be one near satern";
+        description = "The pirate lord has placed a massive bounty on your head fleets from across the system are looking for you. You won’t survive long with this kind of bounty. If you can destroy one of their carrier groups, then they might decide that you are more trouble than your worth. there might be one near Saturn ";
         reward = 100000;
         
 

@@ -4,18 +4,35 @@ using UnityEngine;
 
 public class Frigate : PlayerShip
 {
+    //index for save script 
     override protected int Index
     {
         get { return 1; }
     }
+    /// <summary>
+    /// overide the price 
+    /// </summary>
     public override float Price
     {
         get { return 1500; }
     }
+    /// <summary>
+    /// overide max helth for the ui scripts 
+    /// </summary>
+    public override float MaxHealth
+    {
+
+        get { return 150; }
+    }
+    
     float rainge = 10;
+    /// <summary>
+    /// use for initalization 
+    /// </summary>
     private void Start()
     {
-       
+        health = 150;
+        maxHealth = health;
         Speed = 4;
         //maxSpeed = speed;
     }

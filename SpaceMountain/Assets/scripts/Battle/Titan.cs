@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class Titan : PlayerShip
 {
+    /// <summary>
+    /// for future save game implementation 
+    /// </summary>
     override protected int Index
     {
-
         get { return 3; }
 
-
     }
+    /// <summary>
+    /// overide max helth for the ui scripts 
+    /// </summary>
+    public override float MaxHealth
+    {
+
+        get { return 400; }
+    }
+    /// <summary>
+    /// overide the price from playership 
+    /// </summary>
     public override float Price
     {
         get { return 100000; }
     }
     List<PlayerControlledTurret> turrets = new List<PlayerControlledTurret>();
-    // Start is called before the first frame update
+    /// <summary>
+    /// initalize and oveide all variables that need it 
+    /// </summary>
     void Start()
     {
         
@@ -31,7 +45,8 @@ public class Titan : PlayerShip
         speed = 2;
        
         rotationspeed = .5f;
-        health = 500;
+        health = 400;
+        maxHealth = health;
        // maxSpeed = speed;
     }
     public override void FireOnTarget()
@@ -42,7 +57,7 @@ public class Titan : PlayerShip
         {
             t.Target(target);
         }
-        if (totarget.magnitude < 20)
+        if (totarget.magnitude < 30)//rainge to target<max rainge 
         {
 
            

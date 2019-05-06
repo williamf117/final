@@ -9,7 +9,7 @@ public class EanamyBase : Ship
     [SerializeField]
     GameObject bullet;
    
-    GameObject[] playerships;
+    List<GameObject> playerships=new List<GameObject>();
    protected GameObject currenttarget;
 
     public enum states {
@@ -94,21 +94,42 @@ public class EanamyBase : Ship
     }
 
 
-
+    /// <summary>
+    /// find the closes ship and set it as the target 
+    /// </summary>
+    /// <returns></returns>
     GameObject FindTarget()
     {
-        playerships = GameObject.FindGameObjectsWithTag("PlayerShip");
-        if (playerships.Length > 0) { 
-        int target = Random.Range(0, playerships.Length - 1);
-        //Debug.Log(playerships[target]);
-        return playerships[target];
-        }
-        else
+        try
         {
+            playerships = Camera.main.GetComponent<BattleControler>().Playerships;
+            if (playerships.Count > 0)
+            {
+                GameObject target = null;
+                float closest = Mathf.Infinity;
+                foreach (GameObject go in playerships)
+                {
+                    //calculate rainge if it is less than closest set it to be closest
+                    float rainge = Mathf.Abs((transform.position - go.transform.position).magnitude);
+                    if (rainge < closest)
+                    {
+                        closest = rainge;
+                        target = go;
+
+                    }
+                }
+                return target;
+                //Debug.Log(playerships[target]);
+
+            }
+
+        }
+        catch
+        {
+
             return null;
         }
-
-        
+        return null;
     }
 
     /// <summary>

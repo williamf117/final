@@ -56,14 +56,14 @@ public class HUD : MonoBehaviour {
         Vector2 startpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log(startpos);
         int i = 1;
-        
+        Canvas c = GetComponent<Canvas>();
         foreach(GameObject go in satelights)
         {
             GameObject goButton = (GameObject)Instantiate(BlankButton);
             goButton.transform.SetParent(hud.transform, false);
             // goButton.transform.localScale = new Vector3(1, 1, 1);
             Vector3 pos = goButton.transform.position;
-            pos.y -= 20 * i;
+            pos.y -= 20*c.scaleFactor * i;
             goButton.transform.position = pos;
 
             Button tempButton = goButton.GetComponent<Button>();

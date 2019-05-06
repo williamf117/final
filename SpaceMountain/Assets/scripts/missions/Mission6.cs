@@ -9,7 +9,7 @@ public class Mission6 : MissionBase
     // Start is called before the first frame update
     void Start()
     {
-        description = "In an effort to make up there losses a group of capital ships has attacked the martian dockyard at Deimos keep the Pirates from rebuilding their lost ships.";
+        description = "In an effort to make up their losses a group of capital ships has attacked the martian dockyard at Deimos keep the Pirates from rebuilding their lost ships.";
         reward = 200000;
     }
 

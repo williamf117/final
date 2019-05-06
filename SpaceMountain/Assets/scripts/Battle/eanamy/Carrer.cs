@@ -13,8 +13,8 @@ public class Carrer : EanamyBase
     void Start()
     {
         maxrainge = 200;
-        health = 500;
-        maxHealth = 500;
+        health = 300;
+        maxHealth = 300;
         moveSpeed = 1;
         cooldown = 10;
         launchpos = transform.GetChild(0).gameObject;

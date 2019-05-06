@@ -15,6 +15,11 @@ public class PlayerCurser : PlayerShip
     {
         get { return 3000; }
     }
+    public override float MaxHealth
+    {
+
+        get { return 200; }
+    }
 
     //list for all turrets 
     List<PlayerControlledTurret> turrets = new List<PlayerControlledTurret>();
@@ -27,6 +32,7 @@ public class PlayerCurser : PlayerShip
       //  maxSpeed = speed;
         rotationspeed = 2.5f;
         health = 200;
+        maxHealth = health;
         //populate the list of turrets 
         foreach (Transform child in transform)
         {

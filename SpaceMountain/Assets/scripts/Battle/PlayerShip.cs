@@ -12,8 +12,12 @@ public class PlayerShip : Ship
     [SerializeField]
    protected GameObject bullet;
    protected float speed =5;
-    
 
+    public override float MaxHealth
+    {
+
+        get { return 100; }
+    }
     //an index to represent the type of ship for the save functions 
     protected virtual int Index {
         get { return 0; }
@@ -88,7 +92,9 @@ public class PlayerShip : Ship
        
         //Debug.Log("CALLED");
     }
-  
+  /// <summary>
+  /// called when target !=null to move into rainge and open fire 
+  /// </summary>
    public virtual void FireOnTarget()
     {
         if (!oncooldown)
@@ -114,13 +120,13 @@ public class PlayerShip : Ship
     {
         if (collision.gameObject.tag == "bullet")
         {
-            health -= 20;
+            health -= 30;
             if (health <= 0)
             {
                 Destroy(gameObject);
             }
         }
-        if (collision.gameObject.tag == "PlayerShip")
+        if (collision.gameObject.tag == "PlayerShip"|| collision.gameObject.tag == "HostileFleet")
         {
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
         }
