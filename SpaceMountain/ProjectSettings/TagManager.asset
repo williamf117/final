@@ -12,6 +12,7 @@ TagManager:
   - MissionControler
   - SpawnPoints
   - UIStartpos
+  - Text
   layers:
   - Default
   - TransparentFX

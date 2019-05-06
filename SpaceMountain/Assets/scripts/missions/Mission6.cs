@@ -9,7 +9,7 @@ public class Mission6 : MissionBase
     // Start is called before the first frame update
     void Start()
     {
-        description = "In an effort to make up there losses a group of capital ships has attacked the martian dockyard ad Deimos keep the Pirates from rebuilding their lost ships. Reward 80,000 cr ";
+        description = "In an effort to make up there losses a group of capital ships has attacked the martian dockyard at Deimos keep the Pirates from rebuilding their lost ships.";
         reward = 200000;
     }
 
@@ -35,7 +35,7 @@ public class Mission6 : MissionBase
                 f.GetComponent<Fleet>().AddShip((GameObject)Resources.Load("prefabs/Carrier 1"));
                 f.GetComponent<Fleet>().AddShip((GameObject)Resources.Load("prefabs/Carrier 1"));
             }
-            if(fleetSpawned && boss == null)
+            if(fleetSpawned && boss == null && SceneManager.GetActiveScene().name=="Mars"&&!completed)
             {
                 completed = true;
                 missioncomplete.Invoke("Mission 6 complete ");

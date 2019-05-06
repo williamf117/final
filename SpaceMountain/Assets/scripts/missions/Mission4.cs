@@ -13,7 +13,7 @@ public class Mission4 : MissionBase
     void Start()
     {
         reward = 3000;
-        description = "We have received a destress signal from a stranded titan class vessel pirates are closing in. Get there before they do and you might get some extra ships from the earth fleet.";
+        description = "We have received a destress signal from a stranded titan class vessel in orbit of earth's moon pirates are closing in . Get there before they do and you might get some extra ships from the earth fleet.";
         EventManager.AddEndbattlelistener(EndBattle);
     }
 

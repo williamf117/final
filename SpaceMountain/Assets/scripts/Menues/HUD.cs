@@ -34,6 +34,10 @@ public class HUD : MonoBehaviour {
         }
        
 	}
+    /// <summary>
+    /// set the players desto 
+    /// </summary>
+    /// <param name="s"></param>
     public void TravelTo(GameObject s)
     {
         AudioManager.Instance.Play(AudioClipName.Button);

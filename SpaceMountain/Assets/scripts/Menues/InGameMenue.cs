@@ -60,11 +60,14 @@ public class InGameMenue : MonoBehaviour
     }
     public void MissionBreafing(string descriptionString)
     {
-        AudioManager.Instance.Play(AudioClipName.Button);
-        mb = Instantiate(missionBreefing);
-        mb.transform.SetParent(hud.transform, false);
-        Text description = mb.transform.Find("description").GetComponent<Text>();
-        description.text = descriptionString;
+        if (GameObject.FindGameObjectsWithTag("Text").Length == 0)
+        {
+            AudioManager.Instance.Play(AudioClipName.Button);
+            mb = Instantiate(missionBreefing);
+            mb.transform.SetParent(hud.transform, false);
+            Text description = mb.transform.Find("description").GetComponent<Text>();
+            description.text = descriptionString;
+        }
     }
 
 
