@@ -19,11 +19,12 @@ public class battleUI : MonoBehaviour
         if (initalised == false)
         {
             hud = gameObject;
-
+            //create the ship buttons 
             playerships = Camera.main.GetComponent<BattleControler>().Playerships;
             Vector3 pos =new Vector3(-350,-175,0);
             foreach (GameObject go in playerships)
             {
+                //create the button and set the sprite on it 
                 GameObject goButton = (GameObject)Instantiate(button);
                 goButton.transform.position = pos;
                 goButton.transform.SetParent(hud.transform, false);
@@ -31,6 +32,8 @@ public class battleUI : MonoBehaviour
                 goButton.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = go.GetComponent<SpriteRenderer>().sprite;
                 goButton.GetComponent<Button>().onClick.AddListener(delegate { setSelectedShip(go); });
                 pos.x += 85;
+                //set the slider max to eqaqual the ship health 
+                goButton.transform.GetChild(1).gameObject.GetComponent<Slider>().maxValue = go.GetComponent<Ship>().Health;
             }
             initalised = true;
         }
@@ -49,7 +52,7 @@ public class battleUI : MonoBehaviour
                 return;
             }
             Ship s = playerships[i].GetComponent<Ship>();
-            buttons[i].transform.GetChild(1).gameObject.GetComponent<Slider>().value = s.Health / s.MaxHealth;
+            buttons[i].transform.GetChild(1).gameObject.GetComponent<Slider>().value =s.Health;
            // Debug.Log(s.Health / s.MaxHealth);
            
         }
