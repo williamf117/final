@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Projectile : MonoBehaviour {
+
+	public bool isFrendly = false;
 	public GameObject shoot_effect;
 	public GameObject hit_effect;
 	public GameObject firing_ship;

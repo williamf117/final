@@ -62,10 +62,9 @@ public class Frigate : PlayerShip
 
         if (totarget.magnitude < rainge)
         {
-
-            transform.RotateAround(target.transform.position, Vector3.forward, 10 * Time.deltaTime);
-            // transform.LookAt(target.transform,Vector3.);
-            // transform.Rotate(new Vector3(0, 0, 90));
+            Vector3 dir =( transform.position - target.transform.position).normalized;
+          //  MoveToPosition(transform.position+ dir*10);
+           
             if (!oncooldown)
             {
                 foreach (PlayerControlledTurret t in turrets)

@@ -10,8 +10,10 @@ enum state
 
 public class GameManager : MonoBehaviour
 {
+    //list of all scenes in the game 
     [SerializeField]
     List<string> scenes;
+    //refrence the event manager 
     EventManager eventmanager;
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
     [SerializeField]
@@ -59,7 +61,7 @@ public class GameManager : MonoBehaviour
         get { return playerfunds; }
         set { playerfunds = value; }
     }
-    float playerFuel = 100;
+   
     
 
     //Awake is always called before any Start functions
