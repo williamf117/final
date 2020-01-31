@@ -11,7 +11,7 @@ public class PlayerShip : Ship
    protected float cooldown = 2;
     [SerializeField]
    protected GameObject bullet;
-   protected float speed =5;
+   protected float speed =3;
     /// <summary>
     /// overide max helth for the ui scripts 
     /// </summary>

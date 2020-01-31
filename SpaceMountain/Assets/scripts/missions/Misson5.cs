@@ -39,7 +39,7 @@ public class Misson5 : MissionBase
     }
     private void OnLevelWasLoaded(int level)
     {
-        //grap all the satelights 
+        //randomly spawn eanamy fleets around the system. 
         GameObject[] spawnpoints = GameObject.FindGameObjectsWithTag("Satellite");
         
         foreach(GameObject go in spawnpoints)

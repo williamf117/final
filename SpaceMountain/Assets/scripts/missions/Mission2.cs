@@ -17,6 +17,10 @@ public class Mission2 : MissionBase
     }
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Menue")
+        {
+            Destroy(gameObject);
+        }
         if (SceneManager.GetActiveScene().name != "testBattle"|| SceneManager.GetActiveScene().name != "Menue")
         {
             drawmission = GameObject.FindGameObjectWithTag("HUD").GetComponent<InGameMenue>();
